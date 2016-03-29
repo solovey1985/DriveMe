@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="nav">
+            <div class="nav-bar"></div>
+        </div>
+    </div>
+    <div class="row">
+        <h1>Vehicles</h1>
+            <ul id="vehicle">
+                   
+            </ul>
+       
+    </div>
+    <div class="row"></div>
+</div>
+</body>
+<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Res");
+        $.ajax({
+            url: "http://localhost:58265/api/Account",
+            method: 'GET',
+            success: function(d){
+                console.log(d);
+                $.each(d, function (index, val) {
+                    console.log(val);
+                    $('#vehicle').append('<li>' + val.ShortTitle + " : " + val.PlateNumber + " : " + val.Title + '</li>');
+                });
+            }
+        });
+
+    });
+</script>
+</html>
