@@ -11,9 +11,7 @@ namespace DriveMe.Core.Models
 
         public string Title { get; set; }
 
-        public Position Position { get; set; }
-
-        public string Address { get; set; }
+        public Location Location { get; set; }
 
         public int Distance { get; set; }
 

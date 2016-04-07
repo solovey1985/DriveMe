@@ -15,7 +15,5 @@ namespace DriveMe.Core.Models
         public ConsoleColor Color { get; set; }
 
         public User User { get; set; }
-
-        public Driver Driver { get; set; }
     }
 }
