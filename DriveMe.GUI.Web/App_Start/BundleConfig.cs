@@ -26,6 +26,14 @@ namespace DriveMe.GUI.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/scripts/angular").Include(
+                    "~/Scripts/angular.min.js",
+                    "~/Scripts/angular-route.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
+                    "~/Scripts/angular/modules/route/route.module.js",
+                    "~/Scripts/angular/modules/route/route.controller.js"
+                ));
         }
     }
 }

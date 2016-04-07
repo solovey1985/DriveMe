@@ -54,15 +54,15 @@ namespace DriveMe.GUI.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1442558675975772",
+               appSecret: "78a0597a816c7c6655c6224afeebf46f");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "634128384184-k6v46c17g1mkebv65497at5p834ivn2v.apps.googleusercontent.com",
+                ClientSecret = "f0IsVHrP3s2sh32r696uK_nF"
+            });
         }
     }
 }
