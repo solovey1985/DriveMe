@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveMe.Core.Models", "Driv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveMe.Infrastructure", "DriveMe.Infrastructure\DriveMe.Infrastructure.csproj", "{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveMe.Tests.Spec", "DriveMe.Tests.Spec\DriveMe.Tests.Spec.csproj", "{B1BA2FC1-B990-460C-B64D-51D97CF7812B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1BA2FC1-B990-460C-B64D-51D97CF7812B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1BA2FC1-B990-460C-B64D-51D97CF7812B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1BA2FC1-B990-460C-B64D-51D97CF7812B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1BA2FC1-B990-460C-B64D-51D97CF7812B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +100,6 @@ Global
 		{C4F08B8F-4E07-4822-91C0-A7A9D7D87766} = {A7793B34-0E46-4DF0-BC3A-C3243215840B}
 		{6A151D69-30FF-40F0-9ABE-F1CFF3DB3724} = {73185BFB-77E5-45BB-ACBA-DBD536A228EC}
 		{54DA1AE6-2C1C-47FC-9E45-B085D8766F50} = {77BA415C-C66E-4DEB-AD5F-BDBDB015EA9B}
+		{B1BA2FC1-B990-460C-B64D-51D97CF7812B} = {696CA565-EFFC-4341-A908-1A146D9E375B}
 	EndGlobalSection
 EndGlobal

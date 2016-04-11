@@ -36,13 +36,22 @@ namespace DriveMe.Core.Models
 
     public enum LocationType
     {
+        Boarding,
+        Landing,
+        Landmark
     }
 
     public enum PassengerStatus
     {
+        Waiting,
+        Onboard,
+        Free
     }
 
     public enum DriverStatus
     {
+        Waiting,
+        OnRoute,
+        Free
     }
 }
