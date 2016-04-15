@@ -1,42 +1,26 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes - My ASP.NET Application</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="nav">
-            <div class="nav-bar"></div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <!--Sidebar content-->
+            </div>
+            <div class="span10">
+                <!--Body content-->
+            </div>
         </div>
     </div>
-    <div class="row">
-        <h1>Vehicles</h1>
-            <ul id="vehicle">
-                   
-            </ul>
-       
-    </div>
-    <div class="row"></div>
-</div>
 </body>
-<script src="../../Scripts/jquery-1.10.2.min.js"></script>
-<script>
-    $(document).ready(function () {
-        console.log("Res");
-        $.ajax({
-            url: "http://localhost:58265/api/Account",
-            method: 'GET',
-            success: function(d){
-                console.log(d);
-                $.each(d, function (index, val) {
-                    console.log(val);
-                    $('#vehicle').append('<li>' + val.ShortTitle + " : " + val.PlateNumber + " : " + val.Title + '</li>');
-                });
-            }
-        });
-
-    });
-</script>
 </html>

@@ -32,7 +32,9 @@ namespace DriveMe.GUI.Web
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
                     "~/Scripts/angular/modules/route/route.module.js",
-                    "~/Scripts/angular/modules/route/route.controller.js"
+                    "~/Scripts/angular/modules/route/route.controller.js",
+                    "~/Scripts/angular/modules/route/route.directive.js"
+
                 ));
         }
     }

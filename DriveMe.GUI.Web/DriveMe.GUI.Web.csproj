@@ -226,7 +226,9 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular\modules\route\maptemplate.html" />
     <Content Include="Scripts\angular\modules\route\route.controller.js" />
+    <Content Include="Scripts\angular\modules\route\route.directive.js" />
     <Content Include="Scripts\angular\modules\user\user.module.js" />
     <Content Include="Scripts\angular\services\maps.service.js" />
     <Content Include="Scripts\angular\services\services.module.js" />

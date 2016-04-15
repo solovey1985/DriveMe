@@ -1,7 +1,7 @@
 ﻿html, body {
-   margin:0;
-   padding:0;
-   height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,21 +23,36 @@ select,
 textarea {
     max-width: 280px;
 }
+
 #container {
-   min-height:100%;
-   position:relative;
+    min-height: 500px;
+    position: relative;
 }
+
 #header {
-   padding:10px;
+    height: 70px;
+    padding: 0;
 }
+
 #body {
-   padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
+    padding: 10px;
+    padding-bottom: 60px; /* Height of the footer */
 }
+
+#leftbar{
+    background-color: #a9a9a9;
+}
+
 #footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:60px;   /* Height of the footer */
-  
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Height of the footer */
+}
+
+.row {
+    display: block;
+}
+#map {
+    min-height: 300px;
 }
