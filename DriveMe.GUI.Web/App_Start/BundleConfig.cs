@@ -31,6 +31,9 @@ namespace DriveMe.GUI.Web
                     "~/Scripts/angular-route.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
+                    "~/Scripts/angular/services/services.module.js",
+                    "~/Scripts/angular/services/direction.service.js",
+                    
                     "~/Scripts/angular/modules/route/route.module.js",
                     "~/Scripts/angular/modules/route/route.controller.js",
                     "~/Scripts/angular/modules/route/route.directive.js"
