@@ -8,6 +8,8 @@ namespace DriveMe.GUI.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = false;
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -24,20 +26,31 @@ namespace DriveMe.GUI.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                  
                       "~/Content/bootstrap.css",
+                      "~/Content/ui-bootstrap.css",
                       "~/Content/site.css"));
+
             bundles.Add(new ScriptBundle("~/scripts/angular").Include(
                     "~/Scripts/angular.min.js",
-                    "~/Scripts/angular-route.min.js"
+                    "~/Scripts/angular-route.min.js",
+                    "~/Scripts/angular-ui/ui-bootstrap.min.js",
+                    "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
+                    
                     "~/Scripts/angular/services/services.module.js",
                     "~/Scripts/angular/services/direction.service.js",
-                    
+                    "~/Scripts/angular/services/address.service.js",
+                    "~/Scripts/angular/services/maps.service.js",
+
                     "~/Scripts/angular/modules/route/route.module.js",
                     "~/Scripts/angular/modules/route/route.controller.js",
                     "~/Scripts/angular/modules/route/route.directive.js"
 
+                ));
+            bundles.Add(new ScriptBundle("~/scripts/datetimepicker").Include(
+                    "~/Scripts/custom/datetimepicker.js"
                 ));
         }
     }

@@ -1,26 +1,28 @@
 ﻿angular.module("Services")
-    .service("DirectionService", ['$http', function ($http, map) {
-        var directionServiceInstance = {
-			
-        	startAddress: '',
-            endAndress: '',
-			setAddresses:function(start, end) {
-			    startAddress = start;
-			    endAndress = end;
+    .factory("DirectionService", ['$http', function ($http) {
+    	var directionsService = new google.maps.DirectionsService;
+    	var directionsDisplay = new google.maps.DirectionsRenderer;
 
-			},
-			getRoute: function(route) {
-                alert("route");
-            }
+    	var setMap = function(map) {
+	        directionsDisplay.setMap(map);
+	    }
+        var calculateAndDisplayRoute = function(start, end) {
 
+        	directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.DRIVING
+        	},
+            function (response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
         }
-        return directionServiceInstance;
-
+        return {
+        	calculateRoute: calculateAndDisplayRoute,
+            setMap:setMap
+        };
     }]);
-;
-
-var DirectionService = function($http) {
-	function GetRoute(route) {
-	    alert("route");
-	}
-};
