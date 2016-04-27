@@ -7,8 +7,8 @@
     <ProjectGuid>{6A151D69-30FF-40F0-9ABE-F1CFF3DB3724}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DriveMe.Core.Models</RootNamespace>
-    <AssemblyName>DriveMe.Core.Models</AssemblyName>
+    <RootNamespace>DriveMe.Domain.Models</RootNamespace>
+    <AssemblyName>DriveMe.Domain.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,26 +40,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Driver.cs" />
-    <Compile Include="Models\Enums.cs" />
-    <Compile Include="Models\Landmark.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Passenger.cs" />
-    <Compile Include="Models\Position.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="DriverAction.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Landmark.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="Passenger.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="TripActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\Route.cs" />
-    <Compile Include="Models\Trip.cs" />
-    <Compile Include="Models\TripRequest.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Vehicle.cs" />
-    <Compile Include="Models\Waypoint.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="Trip.cs" />
+    <Compile Include="TripRequest.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="Waypoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DomainModels.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
+      <Project>{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}</Project>
+      <Name>DriveMe.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

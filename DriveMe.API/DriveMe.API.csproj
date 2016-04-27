@@ -239,7 +239,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\RoutesController.cs" />
     <Compile Include="Controllers\TripRequestsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -320,9 +322,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Core.Models.csproj">
+    <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Domain.Models.csproj">
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
-      <Name>DriveMe.Core.Models</Name>
+      <Name>DriveMe.Domain.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\DriveMe.DAL.Identity\DriveMe.DAL.Identity.csproj">
       <Project>{9f0c7593-2106-438d-a3ec-727d28279352}</Project>

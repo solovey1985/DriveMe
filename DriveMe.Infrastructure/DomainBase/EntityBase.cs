@@ -1,8 +1,9 @@
-﻿namespace DriveMe.Infrastructure.DomainBase
+﻿namespace DriveMe.Infrastructure
 {
     public abstract class EntityBase
     {
-        private object key;
+        private int? id;
+        
 
         /// < summary>
         ///     Default Constructor.
@@ -20,16 +21,16 @@
         ///     represents the primary identifier value for the
         ///     class.
         /// </param>
-        protected EntityBase(object key)
+        protected EntityBase(int? id)
         {
-            this.key = key;
+            this.id = id;
         }
 
         /// < summary>
         ///     An < see cref="System.Object" /> that represents the
         ///     primary identifier value for the class.
         /// </summary>
-        public object Key => key;
+        public int? Id => id;
 
         #region Equality Tests
 
@@ -71,7 +72,7 @@
             {
                 return false;
             }
-            if (base1.Key != base2.Key)
+            if (base1.Id != base2.Id)
 
             {
                 return false;
@@ -102,7 +103,7 @@
         /// property. </returns >
         public override int GetHashCode()
         {
-            return this.key.GetHashCode();
+            return this.id.GetHashCode();
         }
 
         #endregion

@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DriveMe.Core.Models
+
+namespace DriveMe.Domain.Models
 {
-    public class Route
+    public class TripRequest
     {
         public int Id { get; set; }
-
-        public string Title { get; set; }
-
         public Location StartPoint { get; set; }
-
         public Location EndPoint { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
 
-        public List<Location> BoardingLocations { get; set; }
-
-        public List<Location> LandingLocations { get; set; }
     }
 }

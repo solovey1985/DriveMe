@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DriveMe.Core.Models
+namespace DriveMe.Domain.Models
 {
-    public class Driver : User
+    public partial class Driver : User
     {
+
+
         public Vehicle Vehicle { get; set; }
+        
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DriveMe.Core.Models
+namespace DriveMe.Domain.Models
 {
     public class Vehicle
     {

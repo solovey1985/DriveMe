@@ -1,12 +1,16 @@
-﻿using System;
+﻿/*
+    Aggregate root for trip context
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DriveMe.Core.Models
+namespace DriveMe.Domain.Models
 {
-    public class Trip
+    public partial class Trip
     {
+        #region Properties
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -22,5 +26,6 @@ namespace DriveMe.Core.Models
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
+        #endregion
     }
 }

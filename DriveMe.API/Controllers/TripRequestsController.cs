@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using DriveMe.Core.Models;
+using DriveMe.Domain.Models;
 
 namespace DriveMe.API.Controllers
 {
@@ -13,12 +13,20 @@ namespace DriveMe.API.Controllers
     public class TripRequestsController : ApiController
     {
         public TripRequest Get(int id){
-            return new TripRequest();
+            return new TripRequest() {StartDateTime = DateTime.Now, EndDateTime = DateTime.Now.AddHours(2)};
         }
 
-        public TripRequest Post([FromBody] TripRequest tripRequest)
+        public Trip Post(TripRequest tripRequest)
         {
-            return new TripRequest();
+            return new Trip() {};
         }
+        [HttpPost]
+        [ActionName("Trip")]
+        public Trip Trip(TripRequest tripRequest)
+        {
+            return new Trip() { Driver = new Driver() {Vehicle = new Vehicle() {Color = ConsoleColor.Black, Model = "dsdfdsf"} } };
+        }
+
+        
     }
 }
