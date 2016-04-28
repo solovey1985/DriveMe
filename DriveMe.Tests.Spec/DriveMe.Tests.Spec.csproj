@@ -48,7 +48,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DriverBehavour\DriverSearchBehavour.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DriveMe.Infrastructure;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Route
+    public class Route:EntityBase
     {
-        public int Id { get; set; }
 
         public string Title { get; set; }
 
@@ -18,5 +19,6 @@ namespace DriveMe.Domain.Models
         public List<Location> BoardingLocations { get; set; }
 
         public List<Location> LandingLocations { get; set; }
+
     }
 }

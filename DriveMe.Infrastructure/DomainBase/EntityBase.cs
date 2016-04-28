@@ -1,9 +1,12 @@
-﻿namespace DriveMe.Infrastructure
+﻿using System.Collections.Generic;
+
+namespace DriveMe.Infrastructure
 {
     public abstract class EntityBase
     {
         private int? id;
-        
+
+     
 
         /// < summary>
         ///     Default Constructor.
@@ -105,6 +108,11 @@
         {
             return this.id.GetHashCode();
         }
+
+        #endregion
+
+        #region Validate
+        protected abstract void Validate();
 
         #endregion
     }
