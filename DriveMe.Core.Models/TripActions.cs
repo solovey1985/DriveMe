@@ -106,5 +106,10 @@ namespace DriveMe.Domain.Models
             throw new NotImplementedException(MethodBase.GetCurrentMethod().ToString());
         }
         #endregion
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

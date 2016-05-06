@@ -15,16 +15,13 @@ namespace DriveMe.Domain.Models
 
         public Position(double latitude, double longitude)
         {
-            if(latitude == 0.0)     throw new ArgumentException("Latitude is not valid");
-            if(longitude == 0.0)    throw new ArgumentException("Longitude is not valid");
-
             Latitude = latitude;
             Longitude = longitude;
         }
 
         public override bool Equals(Position other)
         {
-            throw new NotImplementedException(MethodBase.GetCurrentMethod().Name);
+            return ComparePositionWithPrecision(other, PlacePrecision.House);
         }
 
         public override bool Equals(object obj)
@@ -33,19 +30,53 @@ namespace DriveMe.Domain.Models
             if (!(obj is Position)) return false;
             return this.Equals((Position)obj);
         }
-
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            return Latitude.GetHashCode() + Longitude.GetHashCode();
         }
+        public bool IsTheSameCity(Position other)
+        {
+            return ComparePositionWithPrecision(other, PlacePrecision.City);
+        }
+        public bool IsTheSameDistrict(Position other)
+        {
+            return ComparePositionWithPrecision(other, PlacePrecision.DistrictOrVillage);
+        }
+        public bool IsTheSameStreet(Position other)
+        {
+            return ComparePositionWithPrecision(other, PlacePrecision.Street);
+        }
+        public bool IsTheSameAddress(Position other)
+        {
 
+            return ComparePositionWithPrecision(other, PlacePrecision.House);
+        }
+        private bool ComparePositionWithPrecision(Position other, PlacePrecision precision)
+        {
+            var lat = Math.Round((decimal)Latitude, (int)precision);
+            var lng = Math.Round((decimal)Longitude, (int)precision);
+            var anotherLat = Math.Round((decimal)other.Latitude, (int)precision);
+            var anotherLng = Math.Round((decimal)other.Longitude, (int)precision);
+            return (lat == anotherLat && lng == anotherLng);
+        }
 
 
     }
 }
 
-/*
+public enum PlacePrecision
+{
+    Country = 0,
+    City = 1, 
+    Town = 2,
+    DistrictOrVillage = 3,
+    Street = 4, 
+    House = 5,
+    Human = 6
+}
 
+/*
+Precise
 Таблица приведения точностей координат
 decimal  places decimal     degrees             объекты                                     at equator  23°         45°         67°
 0	            1.0	        1° 00′ 0″	        country or large region	                    111.32 km	102.47 km	78.71 km	43.496 km

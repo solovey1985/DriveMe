@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\PositionTests.cs" />
     <Compile Include="Domain\TripTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +70,10 @@
     <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
       <Name>DriveMe.GUI.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
+      <Project>{54da1ae6-2c1c-47fc-9e45-b085d8766f50}</Project>
+      <Name>DriveMe.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
