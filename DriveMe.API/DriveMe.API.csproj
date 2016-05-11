@@ -338,6 +338,10 @@
       <Project>{870dd3cc-89fb-4360-b2fd-4dd2f0eb7222}</Project>
       <Name>DriveMe.DAL.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
+      <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
+      <Name>DriveMe.GUI.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

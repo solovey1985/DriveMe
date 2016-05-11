@@ -5,9 +5,7 @@ namespace DriveMe.Infrastructure
     public abstract class EntityBase
     {
         private int? id;
-
-     
-
+        
         /// < summary>
         ///     Default Constructor.
         /// </summary>

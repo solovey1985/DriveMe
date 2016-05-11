@@ -43,7 +43,10 @@
     <Compile Include="DomainBase\EntityBase.cs" />
     <Compile Include="DomainBase\IAggregateRoot.cs" />
     <Compile Include="DomainBase\ValueObjectBase.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
