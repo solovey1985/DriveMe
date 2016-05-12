@@ -34,19 +34,27 @@ angular.module("RouteApp")
                 EndDateTime: $scope.endDate + ' ' + $scope.endTime
             }
 
+            $scope.request = {};
+
             $scope.setMap = function(m){
                 mapsService.setMap(m);
             }
 
-            $scope.requestTrip = function(){
-                console.log($scope.TripRequest);
+            $scope.requestTrip = function (){
+                $scope.request = {
+                    Id: 0,
+                    StartTime: $scope.TripRequest.StartDateTime,
+                    EndTime: $scope.TripRequest.EndDateTime,
+                    StartLatitude: $scope.TripRequest.StartPoint.Position.Latitude,
+                    StartLongitude: $scope.TripRequest.StartPoint.Position.Longitude,
+                    EndLatitude: $scope.TripRequest.EndPoint.Position.Latitude,
+                    EndLongitude: $scope.TripRequest.EndPoint.Position.Longitude,
+                    Address: $scope.TripRequest.StartPoint.Address
+
+            } 
+                console.log($scope.request);
             
-                $http.post('http://localhost:58265/api/triprequests/trip', JSON.stringify($scope.TripRequest),
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).success(function(data, status){
+                $http.post('http://localhost:9090/api/triprequests', JSON.stringify($scope.request), { headers: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, } }).success(function (data, status) {
                     console.log(data);
                 }).error(function(data, status){
                 });

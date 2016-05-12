@@ -55,7 +55,6 @@ namespace DriveMe.DAL.Service
 
         public virtual T Add(T entity)
         {
-            //Dal.Set<T>().Add;
             T entry = Context.Add(entity);
             ApplyChanges();
             return entry;
@@ -102,7 +101,6 @@ namespace DriveMe.DAL.Service
             }
             catch (Exception)
             {
-
                 return false;
             }
         }

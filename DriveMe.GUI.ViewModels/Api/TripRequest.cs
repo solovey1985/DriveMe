@@ -13,8 +13,10 @@ namespace DriveMe.GUI.ViewModels.Api
         public string Address { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public double StartLatitude { get; set; }
+        public double StartLongitude { get; set; }
+        public double EndLatitude { get; set; }
+        public double EndLongitude { get; set; }
 
 
     }
