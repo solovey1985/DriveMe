@@ -16,7 +16,12 @@ namespace DriveMe.Domain.Models
             Passangers =new List<Passenger>();
             
         }
-        public Trip(int userId, Location startPoint, Location endPoint, DateTime startTime, DateTime endTime):this()
+
+        protected Trip(Guid id):base(id)
+        {
+            
+        }
+        public Trip(Guid userId, Location startPoint, Location endPoint, DateTime startTime, DateTime endTime):this()
         {
             Driver = new Driver(userId) {};
             Route.StartPoint    = startPoint;

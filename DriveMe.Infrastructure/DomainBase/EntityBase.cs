@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DriveMe.Infrastructure
 {
     public abstract class EntityBase
     {
-        private int? id;
+        private Guid id;
         
         /// < summary>
         ///     Default Constructor.
         /// </summary>
         protected EntityBase()
-            : this(null)
-        {
-        }
+        {}
 
         /// < summary>
         ///     Overloaded constructor.
@@ -22,7 +22,7 @@ namespace DriveMe.Infrastructure
         ///     represents the primary identifier value for the
         ///     class.
         /// </param>
-        protected EntityBase(int? id)
+        protected EntityBase(Guid id)
         {
             this.id = id;
         }
@@ -31,7 +31,8 @@ namespace DriveMe.Infrastructure
         ///     An < see cref="System.Object" /> that represents the
         ///     primary identifier value for the class.
         /// </summary>
-        public int? Id => id;
+        [Key]
+        public Guid Id { get { return id; } set { id = value; } }
 
         #region Equality Tests
 
@@ -73,10 +74,10 @@ namespace DriveMe.Infrastructure
             {
                 return false;
             }
-            if (base1.Id != base2.Id)
+            if (base1.Id == base2.Id)
 
             {
-                return false;
+                return true;
             }
             return true;
         }

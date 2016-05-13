@@ -8,8 +8,11 @@ namespace DriveMe.Infrastructure
 {
     public interface IRepository<T> where T:EntityBase
     {
+        IEnumerable<T> GetAll();
+        T GetById(int id); 
         bool Insert(T entity);
         bool Update(T entity);
         bool Delete(T entity);
+        bool DeleteById(int id);
     }
 }

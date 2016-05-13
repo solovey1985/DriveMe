@@ -9,9 +9,9 @@ namespace DriveMe.Domain.Models
 {
     public partial class Driver
     {
-        public Driver(int id) : base(id) { }
+        public Driver(Guid id) : base(id) { }
 
-        public Driver(int id, string FirstName, string LastName) : this(id)
+        public Driver(Guid id, string FirstName, string LastName) : this(id)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
