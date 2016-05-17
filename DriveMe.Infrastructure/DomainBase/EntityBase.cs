@@ -1,10 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DriveMe.Infrastructure
 {
-    public abstract class EntityBase
+    public interface IEntity
+    {
+        Guid Id { get; set; }
+    }
+    public abstract class EntityBase:IEntity
     {
         private Guid id;
         
@@ -115,6 +118,8 @@ namespace DriveMe.Infrastructure
 
         #endregion
     }
+
+   
 }
 
 

@@ -61,9 +61,7 @@
   <ItemGroup>
     <None Include="DomainModels.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
       <Project>{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}</Project>

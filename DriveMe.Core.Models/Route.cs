@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using DriveMe.Infrastructure;
 using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Route:EntityBase
+    public class Route:EntityBase, IAggregateRoot
     {
 
         public string Title { get; set; }

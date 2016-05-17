@@ -57,12 +57,6 @@
     <Compile Include="Services\BaseService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DriveMe.DAL.Identity\DriveMe.DAL.Identity.csproj">
-      <Project>{9f0c7593-2106-438d-a3ec-727d28279352}</Project>
-      <Name>DriveMe.DAL.Identity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>

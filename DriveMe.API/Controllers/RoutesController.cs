@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
+using DriveMe.Domain.Models;
 using System.Web.Http;
-using DriveMe.DAL.Service;
-using DriveMe.DAL.Identity;
-using DriveMe.DAL.Identity.Models;
 using Ninject;
 
 namespace DriveMe.API.Controllers
@@ -14,32 +8,33 @@ namespace DriveMe.API.Controllers
   
     public class RoutesController : ApiController
     {
-        [Inject]
-        public IRouteDalService service { get; set; }
+        List<Route>  routes = new List<Route>();
+       
         // GET api/values
         public IEnumerable<Route> Get()
         {
 
-            return service.Get();
+            return new List<Route>(23);
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            Route r = service.Get(v => v.Id == id).FirstOrDefault();
+            Route r = new Route();
             return r==null?"value":r.Title;
         }
 
         // POST api/values
         public void Post([FromBody]Route value)
         {
-            service.Add(value);
+            routes.Add(value);
         }
 
         // PUT api/values/5
         public void Put(Route route)
         {
-            service.Update(route);
+            Route routeToUpdate = routes.Find(r => r.Id == route.Id);
+
         }
 
         // DELETE api/values/5

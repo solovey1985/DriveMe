@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
-using DriveMe.API.App_Start;
 using Microsoft.Owin.Security.OAuth;
 
 namespace DriveMe.API

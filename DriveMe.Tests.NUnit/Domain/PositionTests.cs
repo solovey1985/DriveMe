@@ -2,14 +2,8 @@
     [MethodName_StateUnderTest_ExpectedBehavior]
     Public void Sum_NegativeNumberAs1stParam_ExceptionThrown()
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DriveMe.Domain.Models;
-using DriveMe.Infrastructure;
-using NUnit.Framework.Internal;
 using NUnit.Framework;
 
 

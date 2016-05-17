@@ -1,9 +1,6 @@
 namespace DriveMe.DAL.Migrations.User
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class UserConfiguration : DbMigrationsConfiguration<DriveMe.DAL.Contexts.UserContext>
     {
@@ -12,6 +9,7 @@ namespace DriveMe.DAL.Migrations.User
             AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"Migrations\User";
         }
+        
 
         protected override void Seed(DriveMe.DAL.Contexts.UserContext context)
         {

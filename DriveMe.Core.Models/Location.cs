@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DriveMe.Infrastructure.DomainBase;
+﻿using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {

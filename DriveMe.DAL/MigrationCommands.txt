@@ -1,0 +1,3 @@
+﻿--
+Add-Migration Name -configurationtype DriveMe.DAL.Migrations.Trip.TripConfiguration
+Add-Migration Name -configurationtype DriveMe.DAL.Migrations.User.UserConfiguration

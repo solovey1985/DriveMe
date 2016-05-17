@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure.Interception;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Results;
-using DriveMe.Domain.Models;
 using Trip = DriveMe.GUI.ViewModels.Common.Trip;
 using TripRequest = DriveMe.GUI.ViewModels.Api.TripRequest;
 

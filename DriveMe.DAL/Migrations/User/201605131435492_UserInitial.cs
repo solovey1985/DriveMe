@@ -1,6 +1,5 @@
 namespace DriveMe.DAL.Migrations.User
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class UserInitial : DbMigration

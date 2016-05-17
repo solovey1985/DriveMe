@@ -3,20 +3,23 @@
 */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 using DriveMe.Infrastructure;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
     [Table("Trips")]
-    public partial class Trip: EntityBase
+    public partial class Trip: EntityBase, IAggregateRoot
     {
         #region Properties
       
         public string Title { get; set; }
+        public Guid DriverId { get; set; }
+        public Guid VehicleId { get; set; }
+        public Guid RouteId { get; set; }
+        public virtual ICollection<Guid> Passengers { get; set; }
+
         [NotMapped]
         public List<Passenger> Passangers { get; set; }
         [NotMapped]
@@ -26,9 +29,11 @@ namespace DriveMe.Domain.Models
         [NotMapped]
         public Route Route { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
         #endregion
+
+       
     }
 }

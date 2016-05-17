@@ -1,8 +1,4 @@
 using System.IO;
-using DriveMe.DAL.Identity;
-using DriveMe.DAL.Identity.Models;
-using DriveMe.DAL.Service;
-using Ninject.Web.Common;
 using Ninject.Extensions.Conventions;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DriveMe.API.App_Start.NinjectWebCommon), "Start")]

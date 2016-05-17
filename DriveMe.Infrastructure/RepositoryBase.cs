@@ -1,46 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Infrastructure
 {
-    public class RepositoryBase<T>: IRepository<T> where T:EntityBase
+    public class RepositoryBase<T> : IRepository<T> where T : EntityBase, IAggregateRoot
     {
+        public IContext<T> Dal { get; set; }
 
-        private IDbSet<T> dbSet;
+        protected IDbSet<T> _dbSet => _context.Set<T>();
+        private DbContext _context;
+
+        public RepositoryBase(DbContext cntx)
+        {
+            _context = cntx;
+        }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbSet.ToList();
         }
 
-        public T GetById(int id)
+        public T GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return _dbSet.FirstOrDefault(entity => entity.Id == id);
         }
 
         public bool Insert(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(entity);
+            return CommitChanges();
         }
 
         public bool Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            return CommitChanges();
         }
 
         public bool Delete(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
+            return CommitChanges();
         }
 
-        public bool DeleteById(int id)
+        public bool DeleteById(Guid id)
         {
-            throw new NotImplementedException();
+            T entity = _dbSet.FirstOrDefault(e => e.Id == id);
+            if (entity == null) throw new ObjectNotFoundException($"Entity with id = {id} not found.");
+            _dbSet.Remove(entity);
+
+            return CommitChanges();
+        }
+
+        private bool CommitChanges()
+        {
+            try
+            {
+                return _context.SaveChanges() > 0;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new DbUpdateConcurrencyException();
+            }
         }
     }
 }

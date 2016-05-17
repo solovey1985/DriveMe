@@ -57,6 +57,10 @@
     <Compile Include="Migrations\Trip\201605131436223_UserInitial.Designer.cs">
       <DependentUpon>201605131436223_UserInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Trip\201605171140594_nullabledates.cs" />
+    <Compile Include="Migrations\Trip\201605171140594_nullabledates.Designer.cs">
+      <DependentUpon>201605171140594_nullabledates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserConfiguration.cs" />
     <Compile Include="Migrations\User\201605131435492_UserInitial.cs" />
     <Compile Include="Migrations\User\201605131435492_UserInitial.Designer.cs">
@@ -75,7 +79,9 @@
       <Name>DriveMe.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MigrationCommands.txt" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -83,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\Trip\201605131436223_UserInitial.resx">
       <DependentUpon>201605131436223_UserInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Trip\201605171140594_nullabledates.resx">
+      <DependentUpon>201605171140594_nullabledates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\User\201605131435492_UserInitial.resx">
       <DependentUpon>201605131435492_UserInitial.cs</DependentUpon>
