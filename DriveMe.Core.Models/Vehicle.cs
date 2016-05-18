@@ -1,11 +1,11 @@
 ﻿using System;
+using DriveMe.Infrastructure;
 
 namespace DriveMe.Domain.Models
 {
-    public class Vehicle
+    public class Vehicle:EntityBase
     {
-        public int Id { get; set; }
-
+     
         public string Vendor { get; set; }
 
         public string Model { get; set; }
@@ -14,6 +14,13 @@ namespace DriveMe.Domain.Models
 
         public ConsoleColor Color { get; set; }
 
-        public User User { get; set; }
+
+
+        public Driver Driver { get; set; }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

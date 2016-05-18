@@ -53,19 +53,11 @@
     <Compile Include="Contexts\TripContext.cs" />
     <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Migrations\TripConfiguration.cs" />
-    <Compile Include="Migrations\Trip\201605131436223_UserInitial.cs" />
-    <Compile Include="Migrations\Trip\201605131436223_UserInitial.Designer.cs">
-      <DependentUpon>201605131436223_UserInitial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Trip\201605171140594_nullabledates.cs" />
-    <Compile Include="Migrations\Trip\201605171140594_nullabledates.Designer.cs">
-      <DependentUpon>201605171140594_nullabledates.cs</DependentUpon>
+    <Compile Include="Migrations\Trip\201605181421013_InitialTripContext.cs" />
+    <Compile Include="Migrations\Trip\201605181421013_InitialTripContext.Designer.cs">
+      <DependentUpon>201605181421013_InitialTripContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\UserConfiguration.cs" />
-    <Compile Include="Migrations\User\201605131435492_UserInitial.cs" />
-    <Compile Include="Migrations\User\201605131435492_UserInitial.Designer.cs">
-      <DependentUpon>201605131435492_UserInitial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\TripRepository.cs" />
   </ItemGroup>
@@ -87,14 +79,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\Trip\201605131436223_UserInitial.resx">
-      <DependentUpon>201605131436223_UserInitial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Trip\201605171140594_nullabledates.resx">
-      <DependentUpon>201605171140594_nullabledates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\User\201605131435492_UserInitial.resx">
-      <DependentUpon>201605131435492_UserInitial.cs</DependentUpon>
+    <Folder Include="Migrations\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Trip\201605181421013_InitialTripContext.resx">
+      <DependentUpon>201605181421013_InitialTripContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

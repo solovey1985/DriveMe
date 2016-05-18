@@ -1,15 +1,17 @@
-﻿using DriveMe.Infrastructure.DomainBase;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using DriveMe.Infrastructure;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Location:ValueObjectBase<Location>
+    public class Location:EntityBase
     {
         
         public string Title { get; private set; }
 
         public string Address { get; private set; }
-
-        public Position Position { get; private  set; }
+        
+        public Position Position { get; set; }
 
         #region Constructors
         public Location()
@@ -56,7 +58,7 @@ namespace DriveMe.Domain.Models
         }
         
         #region Equals
-        public override bool Equals(Location other)
+        public bool Equals(Location other)
         {
             return Equals(objA: Position, objB: other.Position);
         }
@@ -72,6 +74,11 @@ namespace DriveMe.Domain.Models
         {
             return Position.Latitude.GetHashCode() + Position.Longitude.GetHashCode();
             
+        }
+
+        protected override void Validate()
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion

@@ -19,19 +19,18 @@ namespace DriveMe.Domain.Models
         public Guid VehicleId { get; set; }
         public Guid RouteId { get; set; }
         public virtual ICollection<Guid> Passengers { get; set; }
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
-        [NotMapped]
         public List<Passenger> Passangers { get; set; }
-        [NotMapped]
+
         public Driver Driver { get; set; }
-        [NotMapped]
+
         public Vehicle Vehicle { get; set; }
-        [NotMapped]
+
         public Route Route { get; set; }
 
-        public DateTime? StartTime { get; set; }
-
-        public DateTime? EndTime { get; set; }
+       
         #endregion
 
        

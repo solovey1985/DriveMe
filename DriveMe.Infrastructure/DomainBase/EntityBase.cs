@@ -34,7 +34,6 @@ namespace DriveMe.Infrastructure
         ///     An < see cref="System.Object" /> that represents the
         ///     primary identifier value for the class.
         /// </summary>
-        [Key]
         public Guid Id { get { return id; } set { id = value; } }
 
         #region Equality Tests

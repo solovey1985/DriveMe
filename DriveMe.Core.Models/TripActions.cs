@@ -19,7 +19,7 @@ namespace DriveMe.Domain.Models
         }
         public Trip(Guid userId, Location startPoint, Location endPoint, DateTime startTime, DateTime endTime):this()
         {
-            Driver = new Driver(userId) {};
+            Driver = new Driver(userId);
             Route.StartPoint    = startPoint;
             Route.EndPoint      = endPoint;
             StartTime           = startTime;
@@ -28,11 +28,6 @@ namespace DriveMe.Domain.Models
         }
 
         #region CRUD
-
-        public Trip GetById(int Id)
-        {
-            throw new NotImplementedException(MethodBase.GetCurrentMethod().ToString());
-        }
 
         public Trip Create()
         {
