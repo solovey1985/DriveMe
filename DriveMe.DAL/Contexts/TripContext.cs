@@ -14,6 +14,7 @@ namespace DriveMe.DAL.Contexts
         {
             EntityTypeConfiguration<Trip> tripConfig = modelBuilder.Entity<Trip>();
             tripConfig.HasKey(c => c.Id);
+            tripConfig.Ignore(e => e.State);
             //tripEntityConfig.Ignore(e => e.Passangers);
             //tripEntityConfig.Ignore(e => e.Route);
             //tripEntityConfig.Ignore(e => e.Driver);
@@ -22,14 +23,16 @@ namespace DriveMe.DAL.Contexts
 
           //  modelBuilder.Entity<Location>().Ignore(l => l.Position);
             modelBuilder.Entity<Location>().HasKey(l => l.Id);
+            modelBuilder.Entity<Location>().Ignore(l => l.State);
             modelBuilder.Entity<Location>().Property(p => p.Position.Latitude).HasColumnName("Latitude");
             modelBuilder.Entity<Location>().Property(p => p.Address).HasMaxLength(255);
             modelBuilder.Entity<Location>().Property(p => p.Position.Longitude).HasColumnName("Longitude");
-
-
-
-            modelBuilder.Entity<Passenger>().Ignore(p => p.Trip);
-            modelBuilder.Entity<Driver>().Ignore(p => p.Vehicle);
+            
+            modelBuilder.Entity<Passenger>().Ignore(p => p.Trip).Ignore(p=>p.State);
+            modelBuilder.Entity<Driver>().Ignore(p => p.Vehicle).Ignore(p=>p.State);
+            modelBuilder.Entity<Trip>().Ignore(p=>p.State);
+            modelBuilder.Entity<Vehicle>().Ignore(p=>p.State);
+            modelBuilder.Entity<Route>().Ignore(p=>p.State);
 
             modelBuilder.Configurations.Add(tripConfig);
          

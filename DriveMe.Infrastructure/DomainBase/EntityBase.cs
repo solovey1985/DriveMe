@@ -10,7 +10,7 @@ namespace DriveMe.Infrastructure
     public abstract class EntityBase:IEntity
     {
         private Guid id;
-        
+        public State State { get; set; }
         /// < summary>
         ///     Default Constructor.
         /// </summary>
@@ -118,7 +118,14 @@ namespace DriveMe.Infrastructure
         #endregion
     }
 
-   
+    public enum State
+    {
+        Added,
+        Modified,
+        Removed,
+        Not
+    }
+
 }
 
 
