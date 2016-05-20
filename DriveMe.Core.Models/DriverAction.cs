@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Reflection;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public partial class Driver
+    public partial class Driver : IAggregateRoot
     {
         public Driver(Guid id) : base(id) { }
 

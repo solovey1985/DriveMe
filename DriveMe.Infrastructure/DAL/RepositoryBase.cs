@@ -25,6 +25,11 @@ namespace DriveMe.Infrastructure
             return _dbSet.ToList();
         }
 
+        public IEnumerable<T> Get(Func<T, bool> predicate)
+        {
+            return _dbSet.Where(predicate).ToList();
+        }
+
         public T GetById(Guid id)
         {
             return _dbSet.FirstOrDefault(entity => entity.Id == id);

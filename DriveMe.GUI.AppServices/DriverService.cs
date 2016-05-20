@@ -13,8 +13,9 @@ namespace DriveMe.GUI.AppServices
     public class DriverService:BaseAppService<Trip>
     {
         #region Private Members
-        private readonly Guid driverId;
+        private Guid driverId;
         TripRepository tripRepo = new TripRepository(new TripContext());
+        DriverRepository driverRepo = new DriverRepository(new TripContext());
         #endregion
 
         #region Override Members
@@ -22,7 +23,7 @@ namespace DriveMe.GUI.AppServices
         #endregion
 
         #region Public Members
-
+        public Guid DriverId { get { return driverId; } set { driverId = value; } }
         #endregion
 
 
@@ -32,9 +33,20 @@ namespace DriveMe.GUI.AppServices
             driverId = Guid.NewGuid();
             
         }
+
         public DriverService(Guid driverId) : base(new TripFactory())
         {
             this.driverId = driverId;
+        }
+
+        public Guid CreateDriver(string firstName, string lastname)
+        {
+            Guid guid = Guid.NewGuid();
+            Driver driver = new Driver(guid);
+            driver.FirstName = firstName;
+            driver.LastName = lastname;
+            driverRepo.Insert(driver);
+            return guid;
         }
 
         public void CreateTrip(DateTime start)

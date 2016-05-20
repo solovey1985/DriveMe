@@ -8,20 +8,16 @@ namespace DriveMe.DAL.Contexts
     {
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Route> Routes { get; set; } 
-        //public DbSet<Location> Locations { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Driver>  Drivers { get; set; }
+        public DbSet<Passenger> Passengers { get; set; } 
          
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             EntityTypeConfiguration<Trip> tripConfig = modelBuilder.Entity<Trip>();
             tripConfig.HasKey(c => c.Id);
             tripConfig.Ignore(e => e.State);
-            //tripEntityConfig.Ignore(e => e.Passangers);
-            //tripEntityConfig.Ignore(e => e.Route);
-            //tripEntityConfig.Ignore(e => e.Driver);
-            //tripEntityConfig.Ignore(e => e.Vehicle);
-            //tripEntityConfig.HasMany(x => x.Passangers).WithRequired().HasForeignKey(v=>v.Id).WillCascadeOnDelete(false);
-
-          //  modelBuilder.Entity<Location>().Ignore(l => l.Position);
+            
             modelBuilder.Entity<Location>().HasKey(l => l.Id);
             modelBuilder.Entity<Location>().Ignore(l => l.State);
             modelBuilder.Entity<Location>().Property(p => p.Position.Latitude).HasColumnName("Latitude");

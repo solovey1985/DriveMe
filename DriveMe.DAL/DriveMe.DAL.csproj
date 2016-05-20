@@ -61,8 +61,17 @@
     <Compile Include="Migrations\Trip\201605191552457_addState.Designer.cs">
       <DependentUpon>201605191552457_addState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Trip\201605200707584_DriversAndPassengers.cs" />
+    <Compile Include="Migrations\Trip\201605200707584_DriversAndPassengers.Designer.cs">
+      <DependentUpon>201605200707584_DriversAndPassengers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Trip\201605200849440_SetNullableVehicle.cs" />
+    <Compile Include="Migrations\Trip\201605200849440_SetNullableVehicle.Designer.cs">
+      <DependentUpon>201605200849440_SetNullableVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DriverRepository.cs" />
     <Compile Include="Repositories\TripRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Trip\201605191552457_addState.resx">
       <DependentUpon>201605191552457_addState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Trip\201605200707584_DriversAndPassengers.resx">
+      <DependentUpon>201605200707584_DriversAndPassengers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Trip\201605200849440_SetNullableVehicle.resx">
+      <DependentUpon>201605200849440_SetNullableVehicle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

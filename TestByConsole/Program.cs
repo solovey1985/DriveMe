@@ -14,8 +14,10 @@ namespace TestByConsole
         {
 
             DriverService service = new DriverService(Guid.NewGuid());
+            Guid g = service.CreateDriver("Sokl", "And");
+            service.DriverId = g;
             service.CreateTrip(DateTime.Now);
-
+            
             foreach (Trip  trip in service.GetAllTrips())
             {
                 Console.WriteLine($"Trip Id: {trip.Id} Name:{trip.Title}");

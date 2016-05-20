@@ -7,7 +7,8 @@ namespace DriveMe.Infrastructure
     public interface IRepository<T> where T:IAggregateRoot
     {
         IEnumerable<T> GetAll();
-        T GetById(Guid id); 
+        T GetById(Guid id);
+        IEnumerable<T> Get(Func<T, bool> predicate);
         bool Insert(T entity);
         bool Update(T entity);
         bool Delete(T entity);

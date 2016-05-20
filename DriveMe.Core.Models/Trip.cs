@@ -9,14 +9,14 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    [Table("Trips")]
+
     public partial class Trip: EntityBase, IAggregateRoot
     {
         #region Properties
       
         public string Title { get; set; }
         public Guid DriverId { get; set; }
-        public Guid VehicleId { get; set; }
+        public Nullable<Guid> VehicleId { get; set; }
         public Guid RouteId { get; set; }
         public virtual ICollection<Guid> Passengers { get; set; }
         public DateTime? StartTime { get; set; }
