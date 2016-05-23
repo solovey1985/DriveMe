@@ -7,13 +7,13 @@ namespace DriveMe.DAL.Migrations.Trip
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class SetNullableVehicle : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SetNullableVehicle));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605200849440_SetNullableVehicle"; }
+            get { return "201605231441378_Init"; }
         }
         
         string IMigrationMetadata.Source

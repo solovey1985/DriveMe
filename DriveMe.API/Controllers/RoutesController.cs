@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DriveMe.Domain.Models;
 using System.Web.Http;
+using System.Web.Http.Results;
+using DriveMe.GUI.AppServices;
 using Ninject;
 
 namespace DriveMe.API.Controllers
@@ -9,25 +12,31 @@ namespace DriveMe.API.Controllers
     public class RoutesController : ApiController
     {
         List<Route>  routes = new List<Route>();
-       
+        private DriverService service;
+        public RoutesController()
+        {
+            service = new DriverService();
+        }
+
         // GET api/values
         public IEnumerable<Route> Get()
         {
-
             return new List<Route>(23);
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public string Get(Guid id)
         {
             Route r = new Route();
             return r==null?"value":r.Title;
         }
 
-        // POST api/values
-        public void Post([FromBody]Route value)
+        [HttpPost]
+        public OkNegotiatedContentResult<Guid> Post([FromBody]Route route)
         {
-            routes.Add(value);
+           Guid routeId = service.AddRoute(route, route.Id);
+            return Ok(routeId);
+
         }
 
         // PUT api/values/5

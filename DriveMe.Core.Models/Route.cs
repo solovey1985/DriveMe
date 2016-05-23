@@ -7,7 +7,7 @@ namespace DriveMe.Domain.Models
 {
     public class Route:EntityBase, IAggregateRoot
     {
-
+        
         public string Title { get; set; }
 
         public Location StartPoint { get; set; }

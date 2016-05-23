@@ -14,7 +14,7 @@ namespace TestByConsole
         {
 
             DriverService service = new DriverService(Guid.NewGuid());
-            Guid g = service.CreateDriver("Sokl", "And");
+            Guid g = Guid.NewGuid();
             service.DriverId = g;
             service.CreateTrip(DateTime.Now);
             

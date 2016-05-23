@@ -18,5 +18,15 @@ namespace Driveme.Domain.Services.Factories
             entity.State = State.Added;
             return entity;
         }
+
+        public virtual T Create(T entity)
+        {
+            if (entity == null)
+                entity = Create();
+            entity.Id = Guid.NewGuid();
+            entity.State = State.Added;
+            return entity; 
+            //TODO Add validation
+        }
     }
 }

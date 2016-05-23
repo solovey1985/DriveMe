@@ -247,6 +247,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\RoutesController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\TripRequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,6 +330,10 @@
     <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Domain.Models.csproj">
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
       <Name>DriveMe.Domain.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DriveMe.GUI.AppServices\DriveMe.GUI.AppServices.csproj">
+      <Project>{8738D3A9-9DE2-4E9B-821B-DB0B60B6FEFA}</Project>
+      <Name>DriveMe.GUI.AppServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>

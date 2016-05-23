@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,14 +40,12 @@ namespace DriveMe.GUI.AppServices
             this.driverId = driverId;
         }
 
-        public Guid CreateDriver(string firstName, string lastname)
+        public Guid CreateDriver(Driver driver)
         {
-            Guid guid = Guid.NewGuid();
-            Driver driver = new Driver(guid);
-            driver.FirstName = firstName;
-            driver.LastName = lastname;
-            driverRepo.Insert(driver);
-            return guid;
+            Driver newDriver = new DriverFactory().Create(driver);
+            driverRepo.Insert(newDriver);
+
+            return newDriver.Id;
         }
 
         public void CreateTrip(DateTime start)
@@ -58,10 +57,22 @@ namespace DriveMe.GUI.AppServices
         }
 
         public void CreateRoute(Location startLocation, Location endLocation)
-        { }
-
-        public void AddRoute(Guid tripId, Route route)
         {}
+
+        public Guid AddRoute(Route route, Guid tripId)
+        {
+            Trip trip = tripRepo.GetById(tripId);
+
+            if (trip==null)
+                throw new ObjectNotFoundException($"Trip with ID {tripId} not found");
+
+            Route newRoute = new RouteFactory().Create(route);
+            trip.Route = newRoute;
+            tripRepo.Update(trip);
+
+            return newRoute.Id;
+
+        }
 
         public void AddWaypoints(Guid routeId, List<Waypoint> waypoints)
         {}
@@ -70,6 +81,22 @@ namespace DriveMe.GUI.AppServices
         public IEnumerable<Trip> GetAllTrips()
         {
             return tripRepo.GetAll();
+        }
+
+        public Driver GetDriverById(Guid id)
+        {
+            return driverRepo.GetById(id);
+        }
+
+        public IEnumerable<Driver> GetAllDrivers()
+        {
+            return driverRepo.GetAll();
+        }
+
+        public Guid Update(Driver driver)
+        {
+            driverRepo.Update(driver);
+            return driver.Id;
         }
     }
 }
