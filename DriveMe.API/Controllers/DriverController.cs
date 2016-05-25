@@ -13,15 +13,15 @@ namespace DriveMe.API.Controllers
 
         public DriverController()
         {
-            
             service = new DriverService();
 
         }
-
+        [Authorize]
         public OkNegotiatedContentResult<IEnumerable<Driver>> Get()
         {
             return Ok(service.GetAllDrivers());
         }
+
         public OkNegotiatedContentResult<Driver> Get(Guid id)
         {
             return Ok(service.GetDriverById(id));
@@ -31,9 +31,10 @@ namespace DriveMe.API.Controllers
         {
             return Ok(service.CreateDriver(driver));
         }
-
+       
         public OkNegotiatedContentResult<Guid> Put([FromBody]Driver driver)
         {
+            Console.WriteLine(User.Identity.IsAuthenticated);
             return Ok(service.Update(driver));
         }
 

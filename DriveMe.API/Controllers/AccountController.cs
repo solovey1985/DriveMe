@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -370,6 +371,16 @@ namespace DriveMe.API.Controllers
                 return GetErrorResult(result); 
             }
             return Ok();
+        }
+
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie, ClaimTypes.NameIdentifier, ClaimTypes.Role);
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, "MyCustomID", "http://www.w3.org/2001/XMLSchema#string"));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, "MyCustomUser", "http://www.w3.org/2001/XMLSchema#string"));
+            claimsIdentity.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "Custom Identity", "http://www.w3.org/2001/XMLSchema#string"));
+            Authentication.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, claimsIdentity);
         }
 
         protected override void Dispose(bool disposing)
