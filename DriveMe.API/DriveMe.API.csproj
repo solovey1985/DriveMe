@@ -44,10 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DriveMe.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\DriveMe.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -338,6 +334,10 @@
     <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
       <Name>DriveMe.GUI.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
+      <Project>{54da1ae6-2c1c-47fc-9e45-b085d8766f50}</Project>
+      <Name>DriveMe.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
