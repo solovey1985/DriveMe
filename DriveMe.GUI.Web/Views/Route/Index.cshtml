@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Routes";
+}
+<div ng-app="RouteApp">
+    <div ng-controller="RouteController">
+        <div class="row steps-line">
+
+        </div>
+        <div class="row trip-editor">
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <div class="row">
+
+                    <label><i class="fa fa-info fa-2x"> Начало </i></label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="startAddressAddon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                        <!--start Address -->
+                        <input class="form-control google-address-picker ng-pristine ng-untouched ng-valid ng-empty" id="startAddressPicker" aria-describedby="startAddressAddon" type="text" placeholder="Address" ng-change="fillInStartAddress()" ng-model="startAddress">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="startDateAddon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <!--start Date -->
+                        <input class="form-control datepicker" aria-describedby="startDateAddon" type="text" placeholder="Date" ng-model="startDate"/>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="startTimeAddon"><span class="glyphicon glyphicon-time"></span></span>
+                        <!--start Time-->
+                        <input class="form-control timepicker" aria-describedby="startTimeAddon" type="text" placeholder="Time" ng-model="startTime"/>
+                    </div>
+                    <label><span class="fa fa-info fa-2x">Финиш</span>  </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="endAddressAddon"><span class="glyphicon glyphicon-map-marker danger"></span></span>
+                        <!--end Address -->
+                        <input class="form-control google-address-picker ng-pristine ng-untouched ng-valid ng-empty" id="endAddressPicker" aria-describedby="endAddressAddon" type="text" placeholder="Address" ng-change="fillInEndAddress()" ng-model="endAddress">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="endDateAddon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <!--end Date -->
+                        <input class="form-control datepicker ng-pristine ng-untouched ng-valid ng-empty" aria-describedby="endDateAddon" type="text" placeholder="Date" ng-model="endDate">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="endTimeAddon"><span class="glyphicon glyphicon-time"></span></span>
+                        <!--end Time -->
+                        <input class="form-control timepicker  time-picker ng-pristine ng-untouched ng-valid ng-empty" aria-describedby="endTimeAddon" type="text" placeholder="Time" ng-model="endTime">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                <div dm-google-map></div>
+            </div>
+        </div>
+
+        <div class="row button-control">
+            <button class="btn btn-info" ng-click="calculateRoute()"> <i class="fa fa-street-view fa-lg"></i> Search <span class="glyphicon glyphicon-map-marker"></span></button>
+            <button class="btn btn-info" ng-click="requestTrip()"> <span class="fa fa-street-view fa-lg"></span> Find route <span class="glyphicon glyphicon-map-marker"></span></button>
+        </div>
+    </div>
+</div>
+
+
+@section leftbar
+{
+
+    <div class="row">
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            <button id="userProfileButton" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> Profile</button>
+            <button id="addRouteButton" class="btn btn-info"><span class="glyphicon glyphicon-map-marker"></span> Add Route</button>
+        </div>
+    </div>
+
+}
+
+@section scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/en-gb.js"></script>
+
+
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    @Scripts.Render("~/scripts/angular/routes")
+}
+@section styles{
+}
