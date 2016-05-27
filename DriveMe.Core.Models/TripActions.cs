@@ -9,7 +9,7 @@ namespace DriveMe.Domain.Models
         public Trip()
         {
             Route = new Route();
-            Passangers =new List<Passenger>();
+            Passengers =new List<Guid>();
             
         }
 

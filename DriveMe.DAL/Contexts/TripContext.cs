@@ -14,10 +14,11 @@ namespace DriveMe.DAL.Contexts
          
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            EntityTypeConfiguration<Trip> tripConfig = modelBuilder.Entity<Trip>();
-            tripConfig.HasKey(c => c.Id).HasRequired(x=>x.Route);
-            tripConfig.Ignore(e => e.State);
-            
+
+            modelBuilder.Entity<Trip>().HasKey(t => t.Id);
+            modelBuilder.Entity<Trip>().Ignore(t => t.State);
+            modelBuilder.Entity<Trip>().HasOptional(t=>t.Route);
+
             
             modelBuilder.Entity<Location>().HasKey(l => l.Id);
             modelBuilder.Entity<Location>().Ignore(l => l.State);
@@ -25,15 +26,14 @@ namespace DriveMe.DAL.Contexts
             modelBuilder.Entity<Location>().Property(p => p.Address).HasMaxLength(255);
             modelBuilder.Entity<Location>().Property(p => p.Position.Longitude).HasColumnName("Longitude");
             
+
+
             modelBuilder.Entity<Passenger>().Ignore(p => p.Trip).Ignore(p=>p.State);
             modelBuilder.Entity<Driver>().Ignore(p => p.Vehicle).Ignore(p=>p.State);
             modelBuilder.Entity<Vehicle>().Ignore(p=>p.State);
+ 
             modelBuilder.Entity<Route>().Ignore(p=>p.State);
             
-
-            modelBuilder.Configurations.Add(tripConfig);
-         
-
             base.OnModelCreating(modelBuilder);
             
         }

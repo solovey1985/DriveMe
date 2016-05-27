@@ -6,59 +6,74 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
+using Driveme.Domain.Services.Factories;
 using DriveMe.Domain.Models;
+using DriveMe.GUI.AppServices;
 
 namespace DriveMe.API.Controllers
 {
     [RoutePrefix("api/trip")]
     public class TripController : ApiController
     {
+        private TripService service;
+
+        public TripController()
+        {
+            service = new TripService(new BaseFactory<Trip>());
+        }
         public async Task<IHttpActionResult> Get()
         {
-            throw new NotImplementedException();
+            return Ok(service.GetAll());
         }
         public async Task<IHttpActionResult> Get(Guid id)
         {
-            throw new NotImplementedException();
+            return Ok(service.GetById(id));
         }
-        public async Task<IHttpActionResult> Post()
+        public async Task<IHttpActionResult> Post(Trip trip)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IHttpActionResult> Put()
-        {
-            throw new NotImplementedException();
+            Guid id = service.Create(trip);
+            return Ok(id);
         }
 
-        public async Task<IHttpActionResult> Delete()
+        public async Task<IHttpActionResult> Put(Trip trip)
         {
-            throw new NotImplementedException();
+            Guid id = service.Update(trip);
+            return Ok(id);
+        }
+
+        public async Task<IHttpActionResult> Delete(Guid id)
+        {
+            service.DeleteById(id);
+            return Ok();
         }
 
         #region Routes
         [Route("{id:Guid}/route")]
-        public async Task<IHttpActionResult> GetRoute(Guid id)
+        public async Task<IHttpActionResult> GetRoute(Guid tripId)
         {
+            Route route = service.GetRouteByTripId(tripId);
             return Ok(new Route());
         }
 
         [Route("{id:Guid}/route")]
-        public async Task<IHttpActionResult> PostRoute(Guid id)
+        public async Task<IHttpActionResult> PostRoute(Route route)
         {
-            return Ok(new Route());
+            service.AddRoute(route);
+            return Ok(route.Id);
         }
 
         [Route("{id:Guid}/route")]
-        public async Task<IHttpActionResult> PutRoute(Guid id)
-        {   
-            return Ok(new Route());
+        public async Task<IHttpActionResult> PutRoute(Route route)
+        {
+            service.UpdateRoute(route);
+            return Ok(route.Id);
         }
 
         [Route("{id:Guid}/route")]
         public async Task<IHttpActionResult> DeleteRoute(Guid id)
         {
-            return Ok(new Route());
+            service.DeleteRoute(id);
+            return Ok();
         }
         #endregion 
         

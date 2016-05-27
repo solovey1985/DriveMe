@@ -327,6 +327,10 @@
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
       <Name>DriveMe.Domain.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Driveme.Core.Services\Driveme.Domain.Services.csproj">
+      <Project>{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}</Project>
+      <Name>Driveme.Domain.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DriveMe.GUI.AppServices\DriveMe.GUI.AppServices.csproj">
       <Project>{8738D3A9-9DE2-4E9B-821B-DB0B60B6FEFA}</Project>
       <Name>DriveMe.GUI.AppServices</Name>

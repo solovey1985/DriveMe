@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DriveMe.Infrastructure;
+using DriveMe.Infrastructure.DomainBase;
 
 namespace Driveme.Domain.Services.Factories
 {

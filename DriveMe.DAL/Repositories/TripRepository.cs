@@ -1,4 +1,5 @@
 ﻿using DriveMe.DAL.Contexts;
+using DriveMe.DAL.UnitsOfWork;
 using DriveMe.Domain.Models;
 using DriveMe.Infrastructure;
 
@@ -6,9 +7,9 @@ namespace DriveMe.DAL.Repositories
 {
     public interface ITripRepository:IRepository<Trip> {}
 
-    public class TripRepository:RepositoryBase<Trip>, ITripRepository
+    public class TripRepository:RepositoryBase<Trip, TripContext>, ITripRepository
     {
-        public TripRepository(TripContext cntx) : base(cntx)
+        public TripRepository() : base(new TripUnitOfWork())
         {
         }
     }

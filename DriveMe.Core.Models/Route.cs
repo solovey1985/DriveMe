@@ -18,6 +18,8 @@ namespace DriveMe.Domain.Models
 
         public List<Location> LandingLocations { get; set; }
 
+        public Guid? TripId { get; set; }
+
         protected override void Validate()
         {
             throw new NotImplementedException();

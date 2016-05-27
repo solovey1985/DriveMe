@@ -15,7 +15,7 @@ namespace DriveMe.GUI.AppServices
     {
         #region Private Members
         private Guid driverId;
-        TripRepository tripRepo = new TripRepository(new TripContext());
+        
         DriverRepository driverRepo = new DriverRepository(new TripContext());
         #endregion
 
@@ -29,13 +29,13 @@ namespace DriveMe.GUI.AppServices
 
 
 
-        public DriverService() : base(new TripFactory())
+        public DriverService() : base(new TripFactory(), new TripRepository())
         {
             driverId = Guid.NewGuid();
             
         }
 
-        public DriverService(Guid driverId) : base(new TripFactory())
+        public DriverService(Guid driverId) : base(new TripFactory(), new TripRepository())
         {
             this.driverId = driverId;
         }
@@ -51,9 +51,8 @@ namespace DriveMe.GUI.AppServices
         public void CreateTrip(DateTime start)
         {
             Trip trip = factory.Create();
-            trip.DriverId = driverId;
-
-            tripRepo.Insert(trip);
+          
+            repository.Insert(trip);
         }
 
         public void CreateRoute(Location startLocation, Location endLocation)
@@ -61,14 +60,14 @@ namespace DriveMe.GUI.AppServices
 
         public Guid AddRoute(Route route, Guid tripId)
         {
-            Trip trip = tripRepo.GetById(tripId);
+            Trip trip = repository.GetById(tripId);
 
             if (trip==null)
                 throw new ObjectNotFoundException($"Trip with ID {tripId} not found");
 
             Route newRoute = new RouteFactory().Create(route);
             trip.Route = newRoute;
-            tripRepo.Update(trip);
+            repository.Update(trip);
 
             return newRoute.Id;
 
@@ -80,7 +79,7 @@ namespace DriveMe.GUI.AppServices
 
         public IEnumerable<Trip> GetAllTrips()
         {
-            return tripRepo.GetAll();
+            return repository.GetAll();
         }
 
         public Driver GetDriverById(Guid id)

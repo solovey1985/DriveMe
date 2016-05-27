@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\BaseContext.cs" />
+    <Compile Include="DAL\ContextHelpers.cs" />
+    <Compile Include="DAL\StateHelper.cs" />
     <Compile Include="DomainBase\EntityBase.cs" />
     <Compile Include="DomainBase\IAggregateRoot.cs" />
     <Compile Include="DomainBase\ValueObjectBase.cs" />

@@ -6,7 +6,7 @@ namespace DriveMe.Domain.Models
 {
     public partial class Driver : User, IAggregateRoot
     {
-        public Guid VehicleId { get; set; }
+ 
         public Vehicle Vehicle { get; set; }
         
 

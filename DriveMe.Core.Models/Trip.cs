@@ -15,19 +15,17 @@ namespace DriveMe.Domain.Models
         #region Properties
       
         public string Title { get; set; }
-        public Guid DriverId { get; set; }
-        public Nullable<Guid> VehicleId { get; set; }
-        public virtual ICollection<Guid> Passengers { get; set; }
+        
+  
+        
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+        public virtual ICollection<Guid> Passengers { get; set; }
+        public virtual Driver Driver { get; set; }
 
-        public List<Passenger> Passangers { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
 
-        public Driver Driver { get; set; }
-
-        public Vehicle Vehicle { get; set; }
-
-        public Route Route { get; set; }
+        public virtual Route Route { get; set; }
 
        
         #endregion

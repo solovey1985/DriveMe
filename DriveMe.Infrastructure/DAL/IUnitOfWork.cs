@@ -1,7 +1,12 @@
-﻿namespace DriveMe.Infrastructure
+﻿using System;
+using System.Data.Entity;
+
+namespace DriveMe.Infrastructure
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork<TContext>:IDisposable where TContext:DbContext
     {
-        bool Commit();
+        int Save();
+        TContext Context { get; }
+
     }
 }

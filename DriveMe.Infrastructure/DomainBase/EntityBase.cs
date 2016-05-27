@@ -120,10 +120,10 @@ namespace DriveMe.Infrastructure
 
     public enum State
     {
+        Unchanged,
         Added,
         Modified,
-        Removed,
-        Not
+        Deleted,
     }
 
 }

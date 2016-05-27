@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DriveMe.DAL.Contexts;
+using DriveMe.DAL.UnitsOfWork;
 using DriveMe.Domain.Models;
 using DriveMe.Infrastructure;
 
@@ -14,9 +15,9 @@ namespace DriveMe.DAL.Repositories
     {
     }
 
-    public class DriverRepository:RepositoryBase<Driver>, IDriverRepository
+    public class DriverRepository:RepositoryBase<Driver, TripContext>, IDriverRepository
     {
-        public DriverRepository(TripContext cntx) : base(cntx)
+        public DriverRepository(TripContext cntx) : base(new DriverUnitOfWork())
         {
         }
 

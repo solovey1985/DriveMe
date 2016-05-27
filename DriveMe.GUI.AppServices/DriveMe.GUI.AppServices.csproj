@@ -47,6 +47,7 @@
     <Compile Include="BaseAppService.cs" />
     <Compile Include="DriverService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TripService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Domain.Models.csproj">

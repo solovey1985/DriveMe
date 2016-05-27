@@ -7,13 +7,13 @@ namespace DriveMe.DAL.Migrations.Trip
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class AddTripRef : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTripRef));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605231441378_Init"; }
+            get { return "201605271549466_Add Trip Ref"; }
         }
         
         string IMigrationMetadata.Source
