@@ -7,16 +7,32 @@ using System.Threading.Tasks;
 using Driveme.Domain.Services.Factories;
 using DriveMe.DAL.Contexts;
 using DriveMe.DAL.Repositories;
+using DriveMe.DAL.UnitsOfWork;
 using DriveMe.Domain.Models;
 
 namespace DriveMe.GUI.AppServices
 {
-    public class DriverService:BaseAppService<Trip>
+    public interface IDriverService
+    {
+        Guid DriverId { get; set; }
+        Guid CreateDriver(User driver);
+        void CreateTrip(DateTime start);
+        void CreateRoute(Location startLocation, Location endLocation);
+        Guid AddRoute(Route route, Guid tripId);
+        void AddWaypoints(Guid routeId, List<Waypoint> waypoints);
+        IEnumerable<Trip> GetAllTrips();
+        User GetDriverById(Guid id);
+        IEnumerable<User> GetAllDrivers();
+        Guid Update(User driver);
+    }
+
+    public class DriverService:BaseAppService<Trip>, IDriverService
     {
         #region Private Members
         private Guid driverId;
-        
-        DriverRepository driverRepo = new DriverRepository(new TripContext());
+      
+        IUserRepository driverRepo;
+        IUserUnitOfWork userUnitOfWork;
         #endregion
 
         #region Override Members
@@ -26,23 +42,34 @@ namespace DriveMe.GUI.AppServices
         #region Public Members
         public Guid DriverId { get { return driverId; } set { driverId = value; } }
         #endregion
+        
 
-
-
-        public DriverService() : base(new TripFactory(), new TripRepository())
+        public DriverService(   IUserRepository userRepository,  
+                                IUserUnitOfWork userUnitOfWork, 
+                                ITripFactory tripFactory, 
+                                ITripRepository tripRepository
+                            ) : base(tripFactory, tripRepository)
         {
-            driverId = Guid.NewGuid();
             
+            driverRepo = userRepository;
+            this.userUnitOfWork = userUnitOfWork;
         }
 
-        public DriverService(Guid driverId) : base(new TripFactory(), new TripRepository())
+        public DriverService(   IUserRepository userRepository, 
+                                IUserUnitOfWork userUnitOfWork, 
+                                ITripFactory tripFactory, 
+                                ITripRepository tripRepository, 
+                                Guid driverId
+                            ) : base(tripFactory, tripRepository)
         {
+            driverRepo = userRepository;
+            this.userUnitOfWork = userUnitOfWork;
             this.driverId = driverId;
         }
 
-        public Guid CreateDriver(Driver driver)
+        public Guid CreateDriver(User driver)
         {
-            Driver newDriver = new DriverFactory().Create(driver);
+            User newDriver = new UserFactory().Create(driver);
             driverRepo.Insert(newDriver);
 
             return newDriver.Id;
@@ -82,17 +109,17 @@ namespace DriveMe.GUI.AppServices
             return repository.GetAll();
         }
 
-        public Driver GetDriverById(Guid id)
+        public User GetDriverById(Guid id)
         {
             return driverRepo.GetById(id);
         }
 
-        public IEnumerable<Driver> GetAllDrivers()
+        public IEnumerable<User> GetAllDrivers()
         {
             return driverRepo.GetAll();
         }
 
-        public Guid Update(Driver driver)
+        public Guid Update(User driver)
         {
             driverRepo.Update(driver);
             return driver.Id;

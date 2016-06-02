@@ -8,13 +8,21 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Infrastructure
 {
-    public class RepositoryBase<T, TContext> : IRepository<T> where T : EntityBase, IAggregateRoot where TContext:DbContext
+    public interface IRepositoryBase<T>: IRepository<T> where T : EntityBase, IAggregateRoot
+    {
+        IContext<T> Dal { get; set; }
+   
+    }
+
+    public class RepositoryBase<T, TContext> : IRepositoryBase<T> where T : EntityBase, IAggregateRoot where TContext:DbContext
     {
         public IContext<T> Dal { get; set; }
         private IUnitOfWork<TContext> _unitOfWork;
         protected IDbSet<T> _dbSet => _context.Set<T>();
         private DbContext _context;
 
+        public RepositoryBase() {}
+         
         public RepositoryBase(IUnitOfWork<TContext> unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -38,19 +46,21 @@ namespace DriveMe.Infrastructure
 
         public virtual bool Insert(T entity)
         {
+            entity.State = State.Added;
             _dbSet.Add(entity);
-            return CommitChanges();
+           return CommitChanges();
         }
 
         public virtual bool Update(T entity)
         {
+            entity.State = State.Modified;            
             _dbSet.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
             return CommitChanges();
         }
 
         public bool Delete(T entity)
         {
+            entity.State = State.Deleted;
             _dbSet.Remove(entity);
             return CommitChanges();
         }
@@ -59,6 +69,7 @@ namespace DriveMe.Infrastructure
         {
             T entity = _dbSet.FirstOrDefault(e => e.Id == id);
             if (entity == null) throw new ObjectNotFoundException($"Entity with id = {id} not found.");
+            entity.State = State.Deleted;
             _dbSet.Remove(entity);
 
             return CommitChanges();
@@ -66,7 +77,7 @@ namespace DriveMe.Infrastructure
 
         private bool CommitChanges()
         {
-            return _unitOfWork.Save()>0;
+            return _unitOfWork.Save() > 0;
         }
     }
 }

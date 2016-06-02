@@ -4,11 +4,16 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.GUI.AppServices
 {
-    public abstract class BaseAppService<T> where T:EntityBase, IAggregateRoot, new()
+    public interface IBaseAppService
     {
-        protected BaseFactory<T> factory;
-        protected IRepository<T> repository; 
-        public BaseAppService(BaseFactory<T> factory, IRepository<T> repository)
+    }
+
+    public abstract class BaseAppService<T> : IBaseAppService where T:EntityBase, IAggregateRoot, new()
+    {
+        protected IBaseFactory<T> factory;
+        protected IRepository<T> repository;
+        protected BaseAppService() { } 
+        protected BaseAppService(IBaseFactory<T> factory, IRepository<T> repository)
         {
             this.factory = factory;
             this.repository = repository;

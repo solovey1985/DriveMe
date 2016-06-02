@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using System.IO;
 using Ninject.Extensions.Conventions;
-
+/*
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DriveMe.API.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(DriveMe.API.App_Start.NinjectWebCommon), "Stop")]
-
+*/
 namespace DriveMe.API.App_Start
 {
     using System;
@@ -66,7 +67,7 @@ namespace DriveMe.API.App_Start
         {
 
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin");
-            kernel.Bind(a => a.FromAssembliesInPath(path).SelectAllClasses().BindDefaultInterface());
+            kernel.Bind(b => b.FromAssembliesInPath(path, assembly => assembly.FullName.StartsWith("DriveMe")).SelectAllClasses().BindDefaultInterface());
         }        
     }
 }

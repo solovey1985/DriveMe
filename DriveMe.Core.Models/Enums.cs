@@ -49,4 +49,12 @@
         OnRoute,
         Free
     }
+    public enum Role
+    {
+        Admin,
+        Manager,
+        Driver,
+        Passenger,
+        User
+    }
 }

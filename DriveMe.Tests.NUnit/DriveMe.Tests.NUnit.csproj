@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\UserAdminServiceTest.cs" />
     <Compile Include="DbContext\DriveMeContextTest.cs" />
     <Compile Include="Domain\PositionTests.cs" />
     <Compile Include="Domain\TripTest.cs" />
@@ -78,9 +79,17 @@
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
       <Name>DriveMe.Domain.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Driveme.Core.Services\DriveMe.Domain.Services.csproj">
+      <Project>{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}</Project>
+      <Name>DriveMe.Domain.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DriveMe.DAL\DriveMe.DAL.csproj">
       <Project>{b8475bcc-90e7-41b3-b97d-8a6938eae93c}</Project>
       <Name>DriveMe.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DriveMe.GUI.AppServices\DriveMe.GUI.AppServices.csproj">
+      <Project>{8738D3A9-9DE2-4E9B-821B-DB0B60B6FEFA}</Project>
+      <Name>DriveMe.GUI.AppServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>

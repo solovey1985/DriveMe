@@ -9,7 +9,7 @@ namespace DriveMe.Domain.Models
         public Trip()
         {
             Route = new Route();
-            Passengers =new List<Guid>();
+            Passengers =new List<User>();
             
         }
 
@@ -19,7 +19,7 @@ namespace DriveMe.Domain.Models
         }
         public Trip(Guid userId, Location startPoint, Location endPoint, DateTime startTime, DateTime endTime):this()
         {
-            Driver = new Driver(userId);
+            Driver = new User(userId);
             Route.StartPoint    = startPoint;
             Route.EndPoint      = endPoint;
             StartTime           = startTime;
@@ -103,7 +103,7 @@ namespace DriveMe.Domain.Models
         }
         #endregion
 
-        protected override void Validate()
+        public override bool Validate()
         {
             throw new NotImplementedException();
         }

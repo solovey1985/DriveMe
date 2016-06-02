@@ -9,8 +9,7 @@ namespace DriveMe.DAL.Contexts
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Route> Routes { get; set; } 
         public DbSet<Location> Locations { get; set; }
-        public DbSet<Driver>  Drivers { get; set; }
-        public DbSet<Passenger> Passengers { get; set; } 
+        
          
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -18,20 +17,16 @@ namespace DriveMe.DAL.Contexts
             modelBuilder.Entity<Trip>().HasKey(t => t.Id);
             modelBuilder.Entity<Trip>().Ignore(t => t.State);
             modelBuilder.Entity<Trip>().HasOptional(t=>t.Route);
-
+            modelBuilder.Entity<Trip>().HasMany<User>(p => p.Passengers);
             
             modelBuilder.Entity<Location>().HasKey(l => l.Id);
             modelBuilder.Entity<Location>().Ignore(l => l.State);
             modelBuilder.Entity<Location>().Property(p => p.Position.Latitude).HasColumnName("Latitude");
             modelBuilder.Entity<Location>().Property(p => p.Address).HasMaxLength(255);
             modelBuilder.Entity<Location>().Property(p => p.Position.Longitude).HasColumnName("Longitude");
-            
-
-
-            modelBuilder.Entity<Passenger>().Ignore(p => p.Trip).Ignore(p=>p.State);
-            modelBuilder.Entity<Driver>().Ignore(p => p.Vehicle).Ignore(p=>p.State);
+         
             modelBuilder.Entity<Vehicle>().Ignore(p=>p.State);
- 
+            modelBuilder.Entity<User>().Ignore(t => t.State);
             modelBuilder.Entity<Route>().Ignore(p=>p.State);
             
             base.OnModelCreating(modelBuilder);

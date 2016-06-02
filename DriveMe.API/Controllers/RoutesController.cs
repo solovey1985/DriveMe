@@ -12,10 +12,10 @@ namespace DriveMe.API.Controllers
     public class RoutesController : ApiController
     {
         List<Route>  routes = new List<Route>();
-        private DriverService service;
-        public RoutesController()
+        private IDriverService service;
+        public RoutesController(IDriverService service)
         {
-            service = new DriverService();
+            this.service = service;
         }
 
         // GET api/values

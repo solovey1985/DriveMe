@@ -20,9 +20,8 @@ namespace DriveMe.Domain.Models
         
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public virtual ICollection<Guid> Passengers { get; set; }
-        public virtual Driver Driver { get; set; }
-
+        public virtual ICollection<User> Passengers { get; set; }
+        public virtual User Driver { get; set; }
         public virtual Vehicle Vehicle { get; set; }
 
         public virtual Route Route { get; set; }

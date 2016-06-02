@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
 using DriveMe.Domain.Models;
 using DriveMe.GUI.AppServices;
 
@@ -10,19 +11,55 @@ namespace TestByConsole
 {
     class Program
     {
+        static IContainer container;
         static void Main(string[] args)
         {
+            ContainerBuilder builder = new ContainerBuilder();
+            builder.RegisterType<Repository>().As<IRepository>();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            container = builder.Build();
+            DoSomeWork();
+            Console.ReadLine();
+        }
 
-            DriverService service = new DriverService(Guid.NewGuid());
-            Guid g = Guid.NewGuid();
-            service.DriverId = g;
-            service.CreateTrip(DateTime.Now);
-            
-            foreach (Trip  trip in service.GetAllTrips())
+        public static void DoSomeWork()
+        {
+            using (var scope = container.BeginLifetimeScope())
             {
-                Console.WriteLine($"Trip Id: {trip.Id} Name:{trip.Title}");
+                IRepository repo = container.Resolve<IRepository>();
+                repo.GetSimpleString();
             }
-            
+        }
+    }
+
+    public interface IRepository
+    {
+        void GetSimpleString();
+    }
+
+    public class Repository : IRepository
+    {
+        IUnitOfWork _unitOfWork;
+        public Repository(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+        public void GetSimpleString()
+        {
+            Console.WriteLine($"Execution of interface at {_unitOfWork.GetCurrentDate() }");
+        }
+    }
+
+    public interface IUnitOfWork
+    {
+        string GetCurrentDate();
+    }
+
+    public class UnitOfWork:IUnitOfWork
+    {
+        public string GetCurrentDate()
+        {
+            return DateTime.Now.ToString("F");
         }
     }
 }

@@ -9,30 +9,30 @@ namespace DriveMe.API.Controllers
 {
     public class DriverController : ApiController
     {
-        private DriverService service;
+        private IDriverService service;
 
-        public DriverController()
+        public DriverController(IDriverService driverService)
         {
-            service = new DriverService();
+            service = driverService;
 
         }
-        [Authorize]
-        public OkNegotiatedContentResult<IEnumerable<Driver>> Get()
+        [Authorize(Roles = "Admin")]
+        public OkNegotiatedContentResult<IEnumerable<User>> Get()
         {
             return Ok(service.GetAllDrivers());
         }
 
-        public OkNegotiatedContentResult<Driver> Get(Guid id)
+        public OkNegotiatedContentResult<User> Get(Guid id)
         {
             return Ok(service.GetDriverById(id));
         }
 
-        public OkNegotiatedContentResult<Guid> Post(Driver driver)
+        public OkNegotiatedContentResult<Guid> Post(User driver)
         {
             return Ok(service.CreateDriver(driver));
         }
        
-        public OkNegotiatedContentResult<Guid> Put([FromBody]Driver driver)
+        public OkNegotiatedContentResult<Guid> Put([FromBody]User driver)
         {
             Console.WriteLine(User.Identity.IsAuthenticated);
             return Ok(service.Update(driver));

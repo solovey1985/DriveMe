@@ -9,14 +9,20 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace Driveme.Domain.Services.Factories
 {
-    public class BaseFactory<T> where T:EntityBase, new()
+    public interface IBaseFactory<T> where T : EntityBase, new()
+    {
+        T Create();
+        T Create(T entity);
+    }
+
+    public class BaseFactory<T> : IBaseFactory<T> where T:EntityBase, new()
     {
        protected T entity;
         public virtual T Create()
         {
             entity = new T();
             entity.Id = Guid.NewGuid();
-            entity.State = State.Added;
+            
             return entity;
         }
 
@@ -25,7 +31,7 @@ namespace Driveme.Domain.Services.Factories
             if (entity == null)
                 entity = Create();
             entity.Id = Guid.NewGuid();
-            entity.State = State.Added;
+
             return entity; 
             //TODO Add validation
         }

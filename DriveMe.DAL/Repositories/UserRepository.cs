@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DriveMe.DAL.Contexts;
-using DriveMe.DAL.UnitsOfWork;
 using DriveMe.Domain.Models;
 using DriveMe.Infrastructure;
 
 namespace DriveMe.DAL.Repositories
 {
-    public interface IDriverRepository
+    public interface IUserRepository: IRepositoryBase<User>
     {
     }
-
-    public class DriverRepository:RepositoryBase<Driver, TripContext>, IDriverRepository
+    public class UserRepository:RepositoryBase<User, UserContext>, IUserRepository
     {
-        public DriverRepository(TripContext cntx) : base(new DriverUnitOfWork())
+        public UserRepository() : base()
+        { }
+        public UserRepository(IUnitOfWork<UserContext> unitOfWork) : base(unitOfWork)
         {
         }
-
     }
+
+    
 }

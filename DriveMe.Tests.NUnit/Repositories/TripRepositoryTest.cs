@@ -18,7 +18,7 @@ namespace DriveMe.Tests.NUnit.Repositories
             Trip t2;
             using (TripContext cntx = new TripContext())
             {
-                TripRepository repo = new TripRepository(cntx);
+                TripRepository repo = new TripRepository();
                 repo.Insert(t);
                t2 = repo.GetById(g);
               

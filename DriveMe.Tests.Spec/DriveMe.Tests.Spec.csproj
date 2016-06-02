@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddNewUserSteps.cs" />
     <Compile Include="DriverBehavour\DriverSearchBehavour.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -55,6 +56,11 @@
     </Compile>
     <Compile Include="DriverBehavour\DriverSearchBehavourSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserAdminBehavuor\AdminAddNewUser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminAddNewUser.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +69,10 @@
       <LastGenOutput>DriverSearchBehavour.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="UserAdminBehavuor\AdminAddNewUser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AdminAddNewUser.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PassangerBehavour\" />

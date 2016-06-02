@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WE-Markdown.css = WE-Markdown.css
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Driveme.Domain.Services", "Driveme.Core.Services\Driveme.Domain.Services.csproj", "{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveMe.Domain.Services", "Driveme.Core.Services\DriveMe.Domain.Services.csproj", "{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveMe.API", "DriveMe.API\DriveMe.API.csproj", "{7195BA9C-F838-43F5-BB5E-CCF14DB09CEA}"
 EndProject

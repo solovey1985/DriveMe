@@ -7,7 +7,8 @@ using DriveMe.Domain.Models;
 
 namespace Driveme.Domain.Services.Factories
 {
-    public class DriverFactory:BaseFactory<Driver>
+    public interface IUserFactory:IBaseFactory<User> { }
+    public class UserFactory:BaseFactory<User>, IUserFactory
     {
     }
 }

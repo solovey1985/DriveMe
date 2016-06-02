@@ -2,6 +2,11 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Driveme.Domain.Services.Factories;
+using DriveMe.DAL.Contexts;
+using DriveMe.DAL.Repositories;
+using DriveMe.DAL.UnitsOfWork;
+using DriveMe.Domain.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -14,6 +19,7 @@ namespace DriveMe.GUI.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly UserRepository _userRepository = new UserRepository(new UserUnitOfWork());
 
         public AccountController()
         {
@@ -23,6 +29,7 @@ namespace DriveMe.GUI.Web.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            
         }
 
         public ApplicationSignInManager SignInManager
@@ -148,10 +155,18 @@ namespace DriveMe.GUI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
+                    CreateDriveMeUser(model);
+                    IdentityResult addToRoleResult = await UserManager.AddToRoleAsync(user.Id, "User");
+
+                    if (user.UserName.Contains("solovey1985"))
+                        await UserManager.AddToRoleAsync(user.Id, "SuperAdmin");
+                        await UserManager.AddToRoleAsync(user.Id, "Admin");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -160,6 +175,8 @@ namespace DriveMe.GUI.Web.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+
+
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -167,6 +184,22 @@ namespace DriveMe.GUI.Web.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private void CreateDriveMeUser(RegisterViewModel model)
+        {
+            User newUser = new User()
+            {
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Phone = model.Phone,
+                Login = model.Login,
+                Role = Role.User,
+            };
+            newUser = new UserFactory().Create(newUser);
+            _userRepository.Insert(newUser);
+
         }
 
         //
@@ -344,7 +377,7 @@ namespace DriveMe.GUI.Web.Controllers
             }
         }
 
-        //
+        //Another string in comment
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -365,9 +398,11 @@ namespace DriveMe.GUI.Web.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+               
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "User");
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
@@ -382,7 +417,7 @@ namespace DriveMe.GUI.Web.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -76,7 +76,7 @@ namespace DriveMe.Domain.Models
             
         }
 
-        protected override void Validate()
+        public override bool Validate()
         {
             throw new System.NotImplementedException();
         }

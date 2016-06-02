@@ -5,7 +5,7 @@ using DriveMe.Domain.Models;
 using NUnit.Framework;
 namespace DriveMe.Tests.NUnit.DbContext
 {
-    [TestFixture]
+    [TestFixture(Category = "DbContexts") ]
     public class DriveMeContextTest
     {
         [Test]

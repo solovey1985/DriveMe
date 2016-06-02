@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -68,9 +72,9 @@
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
       <Name>DriveMe.Domain.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Driveme.Core.Services\Driveme.Domain.Services.csproj">
+    <ProjectReference Include="..\Driveme.Core.Services\DriveMe.Domain.Services.csproj">
       <Project>{6bfbfde3-7784-4967-a9fb-e54d8d05deb1}</Project>
-      <Name>Driveme.Domain.Services</Name>
+      <Name>DriveMe.Domain.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\DriveMe.DAL\DriveMe.DAL.csproj">
       <Project>{b8475bcc-90e7-41b3-b97d-8a6938eae93c}</Project>

@@ -12,8 +12,9 @@ namespace DriveMe.Domain.Models
         public ConsoleColor Color { get; set; }
         public int MaxPassengers { get; set; }
         public int MaxWeightKg { get; set; }
-       
-        protected override void Validate()
+        public User Driver { get; set; }
+
+        public override bool Validate()
         {
             throw new NotImplementedException();
         }

@@ -113,7 +113,8 @@ namespace DriveMe.Infrastructure
         #endregion
 
         #region Validate
-        protected abstract void Validate();
+
+        public abstract bool Validate();
 
         #endregion
     }

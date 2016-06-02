@@ -9,12 +9,16 @@ using DriveMe.Infrastructure.DAL;
 
 namespace DriveMe.DAL.UnitsOfWork
 {
-    public class DriverUnitOfWork:IUnitOfWork<TripContext>
+    public interface IUserUnitOfWork
     {
-        public TripContext Context { get; }
-        public DriverUnitOfWork()
+    }
+
+    public class UserUnitOfWork:IUnitOfWork<UserContext>, IUserUnitOfWork
+    {
+        public UserContext Context { get; }
+        public UserUnitOfWork()
         {
-            Context = new TripContext();
+            Context = new UserContext();
         }
 
         public int Save()

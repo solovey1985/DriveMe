@@ -20,7 +20,7 @@ namespace DriveMe.Domain.Models
 
         public Guid? TripId { get; set; }
 
-        protected override void Validate()
+        public override bool Validate()
         {
             throw new NotImplementedException();
         }
