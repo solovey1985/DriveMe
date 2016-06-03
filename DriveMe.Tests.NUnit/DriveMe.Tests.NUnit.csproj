@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\TripService.cs" />
     <Compile Include="ApplicationServices\UserAdminServiceTest.cs" />
     <Compile Include="DbContext\DriveMeContextTest.cs" />
     <Compile Include="Domain\PositionTests.cs" />
@@ -71,6 +72,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DomainServices\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="WebApi\" />
   </ItemGroup>
