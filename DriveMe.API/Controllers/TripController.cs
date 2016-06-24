@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
+
 using Driveme.Domain.Services.Factories;
+using DriveMe.API.Providers;
 using DriveMe.Domain.Models;
 using DriveMe.GUI.AppServices;
 
@@ -27,7 +29,7 @@ namespace DriveMe.API.Controllers
         {
             return Ok(service.GetAll());
         }
-        [Route]
+        [Route("{Id:Guid}")]
         public async Task<IHttpActionResult> Get(Guid id)
         {
             return Ok(service.GetById(id));
@@ -38,6 +40,7 @@ namespace DriveMe.API.Controllers
             Guid id = service.Create(trip);
             return Ok(id);
         }
+
         [HttpPut]
         [Route]
         public async Task<IHttpActionResult> Put([FromBody]Trip trip)
@@ -46,13 +49,12 @@ namespace DriveMe.API.Controllers
             return Ok(id);
         }
 
-        [HttpDelete]
-        [Route]
-        [ActionName("Delete")]
-        public async Task<IHttpActionResult> SomeAction([FromBody] Guid Id)
+        
+        [Route("{id:Guid}")]
+        public async Task<IHttpActionResult> Delete(Guid id)
         {
-            Id = Guid.Parse(HttpContext.Current.Request.Form["Id"] ?? "");
-            service.DeleteById(Id);
+            
+            service.DeleteById(id);
             return Ok();
         }
 

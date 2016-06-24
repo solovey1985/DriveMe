@@ -1,5 +1,11 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.ComponentModel;
+using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.ModelBinding;
+using System.Web.Http.ModelBinding.Binders;
+using DriveMe.API.Providers;
+using DriveMe.Domain.Models;
 using Microsoft.Owin.Security.OAuth;
 
 namespace DriveMe.API
@@ -15,6 +21,7 @@ namespace DriveMe.API
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
             
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.XmlFormatter.UseXmlSerializer = true;
             // Web API routes
             config.MapHttpAttributeRoutes();
             

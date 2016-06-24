@@ -34,11 +34,11 @@ namespace DriveMe.GUI.Web
                     "~/Scripts/angular.min.js",
                     "~/Scripts/angular-route.min.js",
                     "~/Scripts/angular-ui/ui-bootstrap.min.js",
-                    "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"
+                    "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+                    "~/Scripts/angular/services/services.module.js"
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
                     
-                    "~/Scripts/angular/services/services.module.js",
                     "~/Scripts/angular/services/direction.service.js",
                     "~/Scripts/angular/services/address.service.js",
                     "~/Scripts/angular/services/maps.service.js",
@@ -50,6 +50,10 @@ namespace DriveMe.GUI.Web
                 ));
             bundles.Add(new ScriptBundle("~/scripts/datetimepicker").Include(
                     "~/Scripts/custom/datetimepicker.js"
+                ));
+            bundles.Add(new ScriptBundle("~/scripts/angular/register").Include(
+                     "~/Scripts/angular/modules/register/register.module.js",
+                    "~/Scripts/angular/modules/register/register.controller.js"
                 ));
         }
     }
