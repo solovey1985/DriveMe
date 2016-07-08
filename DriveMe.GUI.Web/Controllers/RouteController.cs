@@ -25,6 +25,14 @@ namespace DriveMe.GUI.Web.Controllers
             }
             return View();
         }
+
+        private int myVar;
+
+        public ActionResult Test()
+        {
+           return View();
+        }
+
     }
 
 }

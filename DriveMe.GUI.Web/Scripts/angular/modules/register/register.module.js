@@ -1,1 +1,1 @@
-﻿angular.module("RegisterApp", ["Services"]);
+﻿angular.module("RegisterApp", ['ngMaterial']);

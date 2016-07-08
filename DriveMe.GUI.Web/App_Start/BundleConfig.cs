@@ -30,11 +30,19 @@ namespace DriveMe.GUI.Web
                       "~/Content/ui-bootstrap.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new ScriptBundle("~/scripts/angular").Include(
+          bundles.Add(new StyleBundle("~/Content/material").Include(
+
+                              "~/Content/angular-material.layouts.min.css",
+                              "~/Content/angular-material.min.css",
+                              "~/Content/materialicons.css",
+                              "~/Content/material-datetimepicker.min.css"));
+            
+          bundles.Add(new ScriptBundle("~/scripts/angular").Include(
                     "~/Scripts/angular.min.js",
                     "~/Scripts/angular-route.min.js",
                     "~/Scripts/angular-ui/ui-bootstrap.min.js",
                     "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+                    "~/Scripts/angular-animate.min.js",
                     "~/Scripts/angular/services/services.module.js"
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
@@ -45,6 +53,7 @@ namespace DriveMe.GUI.Web
 
                     "~/Scripts/angular/modules/route/route.module.js",
                     "~/Scripts/angular/modules/route/route.controller.js",
+                    "~/Scripts/angular/modules/route/datepicker.controller.js",
                     "~/Scripts/angular/modules/route/route.directive.js"
 
                 ));
@@ -55,6 +64,17 @@ namespace DriveMe.GUI.Web
                      "~/Scripts/angular/modules/register/register.module.js",
                     "~/Scripts/angular/modules/register/register.controller.js"
                 ));
+            bundles.Add(new ScriptBundle("~/scripts/angular/register").Include(
+                    "~/Scripts/angular/modules/register/register.module.js",
+                   "~/Scripts/angular/modules/register/register.controller.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/scripts/angular/material").Include(
+                    "~/Scripts/angular-aria/angular-aria.min.js",
+                    "~/Scripts/moment.min.js",
+                   "~/Scripts/angular-material/angular-material.min.js",
+                   "~/Scripts/angular-material-datetimepicker.js"
+               ));
         }
     }
 }

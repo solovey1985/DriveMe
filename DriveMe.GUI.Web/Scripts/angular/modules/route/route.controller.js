@@ -1,107 +1,227 @@
 ﻿/// <reference path="../../../angular.js" />
 angular.module("RouteApp")
-    .controller("RouteController", [
-        '$http', '$scope', 'DirectionService', 'addressService', "mapsService",
+    .controller("RouteController",
+    [
+        "$http", "$scope", "DirectionService", "addressService", "mapsService",
         function($http, $scope, DirectionService, addressService, mapsService){
 
-            $scope.route = {
-                waypoints: [{ lat: 50.23254, lng: 30.50245 }],
-                name: 'First Route',
-                startTime: new Date('05.04.2016 12:00:03')
-            }
+            $scope.request = {
+                StartTime: '',
+                EndTime: '',
+                StartLatitude: '',
+                StartLongitude: '',
+                StartAddress: '',
+                EndLatitude: '',
+                EndLongitude: '',
+                EndAddress: ''
+            };
 
-            $scope.startDate = '';
-            $scope.startTime = '';
-            $scope.endDate = '';
-            $scope.endTime = '';
+
+            $scope.endDate = "";
+            $scope.startDate = "";
+            $scope.startTime = "";
+            $scope.endTime = "";
+          
 
             $scope.TripRequest = {
                 StartPoint: {
-                    Address: '',
+                    Address: "",
                     Position: {
-                        Latitude: '',
-                        Longitude: ''
+                        Latitude: "",
+                        Longitude: ""
                     }
                 },
                 EndPoint: {
-                    Address: '',
+                    Address: "",
                     Position: {
-                        Latitude: '',
-                        Longitude: ''
+                        Latitude: "",
+                        Longitude: ""
                     }
                 },
-                StartDateTime: '04/04/2015',
-                EndDateTime: $scope.endDate + ' ' + $scope.endTime
-            }
-
-            $scope.request = {};
-
+                StartDateTime: "",
+                EndDateTime: ""
+            };
+            
             $scope.setMap = function(m){
                 mapsService.setMap(m);
-            }
-
-            $scope.requestTrip = function (){
-                $scope.request = {
-                    Id: 0,
-                    StartTime: $scope.TripRequest.StartDateTime,
-                    EndTime: $scope.TripRequest.EndDateTime,
-                    StartLatitude: $scope.TripRequest.StartPoint.Position.Latitude,
-                    StartLongitude: $scope.TripRequest.StartPoint.Position.Longitude,
-                    EndLatitude: $scope.TripRequest.EndPoint.Position.Latitude,
-                    EndLongitude: $scope.TripRequest.EndPoint.Position.Longitude,
-                    Address: $scope.TripRequest.StartPoint.Address
-
-            } 
-                console.log($scope.request);
-            
-                $http.post('http://localhost:9090/api/triprequests', JSON.stringify($scope.request), { headers: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, } }).success(function (data, status) {
-                    console.log(data);
-                }).error(function(data, status){
-                });
-            }
-
-            var setMarkerByAddress = function(place){
-                mapsService.setMarker(place.geometry.location.lat(), place.geometry.location.lng(), place.formatted_address, true);
-            }
-
-            $scope.fillInStartAddress = function(){
-                var myEl = $('#startAddressPicker');
-
-                addressService.getAddress(myEl[0], function(place){
-                    setMarkerByAddress(place);
-                    $scope.TripRequest.StartPoint.Position.Latitude = place.geometry.location.lat();
-                    $scope.TripRequest.StartPoint.Position.Longitude = place.geometry.location.lng();
-                    $scope.TripRequest.StartPoint.Address = place.formatted_address;
-                });
-
             };
-            $scope.fillInEndAddress = function(){
-                var el = $('#endAddressPicker');
 
-                $scope.endPlace = addressService.getAddress(el[0], function(place){
-                    setMarkerByAddress(place);
-                    $scope.TripRequest.EndPoint.Position.Latitude = place.geometry.location.lat();
-                    $scope.TripRequest.EndPoint.Position.Longitude = place.geometry.location.lng();
-                    $scope.TripRequest.EndPoint.Address = place.formatted_address;
-                });
+            $scope.sendTripRequest = function (){
+
+                var request = getRequest();
+                console.log(request);
+                $http.post("http://localhost:9090/api/triprequests", JSON.stringify(request))
+                    .success(function (data, status) {
+                    })
+                    .error(function (data, status) {
+                    });
+            };
+
+            $scope.fillInStartAddress = function () {
+                const myEl = $("#startAddressPicker");
+
+                addressService.getAddress(myEl[0],
+                    function (place) {
+                        setMarkerByAddress(place);
+                    });
 
             };
 
-            $scope.startAddress = "";
+            $scope.fillInEndAddress = function () {
+                const el = $("#endAddressPicker");
 
-            $scope.getRoute = function(){
-                console.log($scope.startAddress);
+                $scope.endPlace = addressService.getAddress(el[0],
+                    function (place){
+                        setMarkerByAddress(place);
+                        $scope.TripRequest.EndPoint.Position.Latitude = place.geometry.location.lat();
+                        $scope.TripRequest.EndPoint.Position.Longitude = place.geometry.location.lng();
+                        $scope.TripRequest.EndPoint.Address = place.formatted_address;
+                    });
+
+            };
+
+            $scope.getRoute = function () {
                 DirectionService.getRoute($scope.startAddress);
 
             };
 
-            $scope.calculateRoute = function(){
-                var start = mapsService.getStart();
-                var end = mapsService.getEnd();
-                console.log(end);
+            $scope.calculateRoute = function () {
+                const start = mapsService.getStart();
+                const end = mapsService.getEnd();
+
                 DirectionService.setMap(gMap);
                 DirectionService.calculateRoute(start.position, end.position);
+            };
+
+           
+            var setMarkerByAddress = function (place) {
+                mapsService.createMarker(place.geometry.location.lat(),
+                    place.geometry.location.lng(),
+                    place.formatted_address,
+                    true);
+            };
+
+            function getRequest(){
+                var startPosition = mapsService.getStart();
+                var endPosition = mapsService.getEnd();
+           
+                return {
+                        StartTime:  $scope.startDate.toLocaleString(),
+                        EndTime: $scope.endDate.toLocaleString(),
+                        StartLatitude: startPosition.position.lat(),
+                        StartLongitude: startPosition.position.lng(), 
+                        StartAddress: startPosition.address,
+                        EndLatitude: endPosition.position.lat(),
+                        EndLongitude: endPosition.position.lng(),
+                        EndAddress: endPosition.address
+                    };
             }
+            
+            function transferTimeToDate(time, date){
+                console.log(time);
+                date.setHours(time.getHours(), time.getMinutes(), 0);
+                return date.toLocaleString();
+            }
+            function isValid(){
+                return true;
+            }
+            
+            /*Date & Time*/
+            $scope.today = function(){
+                $scope.dt = new Date();
+            };
+            $scope.today();
+
+            $scope.clear = function(){
+                $scope.dt = null;
+            };
+
+            $scope.inlineOptions = {
+                customClass: getDayClass,
+                minDate: new Date(),
+                showWeeks: true
+            };
+
+            $scope.dateOptions = {
+                dateDisabled: disabled,
+                formatYear: "yy",
+                maxDate: new Date(2020, 5, 22),
+                minDate: new Date(),
+                startingDay: 1
+            };
+
+            // Disable weekend selection
+            function disabled(data){
+                const date = data.date;
+                const mode = data.mode;
+                return mode === "day" && (date.getDay() === 0 || date.getDay() === 6);
+            }
+
+            $scope.toggleMin = function(){
+                $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
+                $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
+            };
+
+            $scope.toggleMin();
+
+            $scope.open1 = function(){
+                $scope.popup1.opened = true;
+            };
+
+            $scope.open2 = function(){
+                $scope.popup2.opened = true;
+            };
+
+            $scope.setDate = function(year, month, day){
+                $scope.dt = new Date(year, month, day);
+            };
+
+            $scope.formats = ["dd-MMMM-yyyy", "yyyy/MM/dd", "dd.MM.yyyy", "shortDate"];
+            $scope.format = $scope.formats[0];
+            $scope.altInputFormats = ["M!/d!/yyyy"];
+
+            $scope.popup1 = {
+                opened: false
+            };
+
+            $scope.popup2 = {
+                opened: false
+            };
+
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const afterTomorrow = new Date();
+            afterTomorrow.setDate(tomorrow.getDate() + 1);
+            $scope.events = [
+                {
+                    date: tomorrow,
+                    status: "full"
+                },
+                {
+                    date: afterTomorrow,
+                    status: "partially"
+                }
+            ];
+
+            function getDayClass(data){
+                const date = data.date;
+                const mode = data.mode;
+                if (mode === "day") {
+                    const dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+                    for (let i = 0; i < $scope.events.length; i++) {
+                        const currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+
+                        if (dayToCheck === currentDay) {
+                            return $scope.events[i].status;
+                        }
+                    }
+                }
+
+                return "";
+            }
+
+            
         }
     ]);
 

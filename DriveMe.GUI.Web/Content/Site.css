@@ -106,3 +106,17 @@ textarea {
     width: 100%;
     margin: 10px auto;
 }
+.md-button {
+    margin: 0px 0px;
+}
+.fa {
+    align-content: flex-end;
+    vertical-align: middle;
+}
+.add-route>i:first-child{
+   
+}
+
+.list-item {
+    margin-top: 10px;
+}

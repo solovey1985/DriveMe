@@ -1,1 +1,1 @@
-﻿angular.module("RouteApp", ['Services']);
+﻿angular.module("RouteApp", ['ngAnimate','ngMaterialDatePicker', 'ui.bootstrap', 'Services']);

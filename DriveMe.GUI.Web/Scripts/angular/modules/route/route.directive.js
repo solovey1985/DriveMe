@@ -8,8 +8,6 @@
                 return "/Scripts/angular/templates/route/map-template.html";
             },
             link: function(scope) {
-                console.log("In Directive");
-                
                 var mapDiv = document.getElementById("map");
                 //Теперь карта доступна для всех скриптов на странице
                 window.gMap = new google.maps.Map(mapDiv, {

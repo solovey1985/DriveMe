@@ -16,8 +16,9 @@ namespace DriveMe.API.Controllers
             return new TripRequest() {StartTime = DateTime.Now, EndTime = DateTime.Now.AddHours(2)};
         }
 
-        public NegotiatedContentResult<TripRequest> Post(TripRequest request)
-        {
+        public NegotiatedContentResult<TripRequest> Post([FromBody]TripRequest request)
+       {
+            Console.WriteLine(ControllerContext.Request.Content.ToString());
             NegotiatedContentResult <TripRequest> response = new NegotiatedContentResult<TripRequest>(HttpStatusCode.OK, request, this);
             return response;
         }
