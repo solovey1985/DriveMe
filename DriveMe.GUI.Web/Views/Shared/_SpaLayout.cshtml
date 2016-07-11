@@ -10,23 +10,25 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/material")
     @Scripts.Render("~/bundles/modernizr")
-   @RenderSection("styles", false)
-    
+    @RenderSection("styles", false)
+
 </head>
 <body>
 
     @RenderBody()
 
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/en-gb.js"></script>
+    @Scripts.Render("~/scripts/datetimepicker")
+    @Scripts.Render("~/scripts/angular")
+    @Scripts.Render("~/scripts/angular/material")
+    @Scripts.Render("~/scripts/angular/app")
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/scripts/datetimepicker")
-@Scripts.Render("~/scripts/angular")
-@Scripts.Render("~/scripts/angular/material")
-
-@RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 
 
 </body>

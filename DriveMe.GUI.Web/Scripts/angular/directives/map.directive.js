@@ -1,5 +1,6 @@
-﻿angular.module("RouteApp")
-    .directive("dmGoogleMap", function() {
+﻿
+angular.module("Directives")
+    .directive("dmGoogleMap", ['mapsService', function (mapService) {
         return {
             restrict: "A",
             replace: true,
@@ -14,7 +15,7 @@
                     center: { lat: 50.32323, lng: 30.545456 },
                     zoom: 8
                 });
-                scope.setMap(gMap);
+                mapService.setMap (window.gMap);
             }
         };
-    });
+    }]);

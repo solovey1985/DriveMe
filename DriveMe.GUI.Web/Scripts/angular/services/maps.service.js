@@ -1,9 +1,9 @@
 ﻿angular.module("Services")
     .factory("mapsService", ['addressService',
-        function (addressService) {
-            var map;
-            var markers = [];
+        function (addressService){
 
+            var markers = [];
+            
             var removeMarker = function(marker) {
                 var index = markers.indexOf(marker);
                 markers.splice(index, 1);
@@ -53,6 +53,7 @@
 
             var setMap = function(m) {
                 map = m;
+                console.log(map);
                 map.addListener('click', addMarkerToMap);
             }
 

@@ -42,10 +42,6 @@ angular.module("RouteApp")
                 EndDateTime: ""
             };
             
-            $scope.setMap = function(m){
-                mapsService.setMap(m);
-            };
-
             $scope.sendTripRequest = function (){
 
                 var request = getRequest();

@@ -42,32 +42,44 @@ namespace DriveMe.GUI.Web
                     "~/Scripts/angular-route.min.js",
                     "~/Scripts/angular-ui/ui-bootstrap.min.js",
                     "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
-                    "~/Scripts/angular-animate.min.js",
-                    "~/Scripts/angular/services/services.module.js"
-                ));
-            bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
+                    "~/Scripts/angular-animate.min.js"
                     
-                    "~/Scripts/angular/services/direction.service.js",
-                    "~/Scripts/angular/services/address.service.js",
-                    "~/Scripts/angular/services/maps.service.js",
+                ));
 
+            bundles.Add(new ScriptBundle("~/scripts/angular/app").Include(
+                "~/Scripts/angular/services/services.module.js",
+                "~/Scripts/angular/services/address.service.js",
+                "~/Scripts/angular/services/direction.service.js",
+
+                "~/Scripts/angular/services/maps.service.js",
+
+                "~/Scripts/angular/directives/directives.module.js",
+                "~/Scripts/angular/directives/map.directive.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/scripts/angular/main").Include(
+                    "~/Scripts/angular/modules/main/main.module.js",
+                    "~/Scripts/angular/modules/main/route.service.js",
+                    "~/Scripts/angular/modules/main/main.controller.js"
+                   
+               ));
+            bundles.Add(new ScriptBundle("~/scripts/angular/routes").Include(
+               
                     "~/Scripts/angular/modules/route/route.module.js",
                     "~/Scripts/angular/modules/route/route.controller.js",
-                    "~/Scripts/angular/modules/route/datepicker.controller.js",
-                    "~/Scripts/angular/modules/route/route.directive.js"
+                    "~/Scripts/angular/modules/route/datepicker.controller.js"
+                   
 
                 ));
+
             bundles.Add(new ScriptBundle("~/scripts/datetimepicker").Include(
-                    "~/Scripts/custom/datetimepicker.js"
+                    "~/Scripts/bootstrap-datetimepicker.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/scripts/angular/register").Include(
                      "~/Scripts/angular/modules/register/register.module.js",
                     "~/Scripts/angular/modules/register/register.controller.js"
                 ));
-            bundles.Add(new ScriptBundle("~/scripts/angular/register").Include(
-                    "~/Scripts/angular/modules/register/register.module.js",
-                   "~/Scripts/angular/modules/register/register.controller.js"
-               ));
+         
 
             bundles.Add(new ScriptBundle("~/scripts/angular/material").Include(
                     "~/Scripts/angular-aria/angular-aria.min.js",

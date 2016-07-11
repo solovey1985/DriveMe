@@ -5,6 +5,7 @@
 }
 
 /* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -13,11 +14,11 @@
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
-    white-space: normal;
-}
+
+.dl-horizontal dt { white-space: normal; }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
@@ -26,8 +27,8 @@ textarea {
 }
 
 #container {
-    min-height:100%;
-    position:relative;
+    min-height: 100%;
+    position: relative;
 }
 
 #header {
@@ -40,9 +41,7 @@ textarea {
     padding-bottom: 60px; /* Height of the footer */
 }
 
-#leftbar {
-    background-color: #a9a9a9;
-}
+#leftbar { background-color: #a9a9a9; }
 
 #footer {
     position: absolute;
@@ -52,9 +51,7 @@ textarea {
 }
 
 
-#map {
-    min-height: 300px;
-}
+#map { min-height: 300px; }
 
 .center-block {
     display: block;
@@ -63,60 +60,87 @@ textarea {
 }
 
 @media screen (max-width: 480px) {
-    .form-signin {
-        max-width: 100%;
-    }
+    .form-signin { max-width: 100%; }
 }
 
 .form-signin {
-  max-width: 80%;
-  padding: 15px;
-  margin: 0 auto;
+    max-width: 80%;
+    padding: 15px;
+    margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
+.form-signin .checkbox { margin-bottom: 10px; }
+
+.form-signin .checkbox { font-weight: normal; }
+
 .form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
 }
-.form-signin .form-control:focus {
-  z-index: 2;
-}
+
+.form-signin .form-control:focus { z-index: 2; }
+
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
+
 .form-group {
     width: 100%;
     margin: 10px auto;
 }
-.md-button {
-    margin: 0px 0px;
-}
+
+.md-button { margin: 0px 0px; }
+
 .fa {
     align-content: flex-end;
     vertical-align: middle;
 }
-.add-route>i:first-child{
-   
+
+.add-route > i:first-child { }
+
+.list-item { margin-top: 10px; }
+
+.tabsdemoDynamicTabs md-content { background-color: transparent !important; }
+
+.tabsdemoDynamicTabs md-content md-tabs { border: 1px solid #e1e1e1; }
+
+.tabsdemoDynamicTabs md-content md-tabs md-tab-content { background: #f6f6f6; }
+
+.tabsdemoDynamicTabs md-content md-tabs md-tabs-wrapper { background: white; }
+
+.tabsdemoDynamicTabs md-content h1:first-child { margin-top: 0; }
+
+.tabsdemoDynamicTabs md-input-container { padding-bottom: 0; }
+
+.tabsdemoDynamicTabs .remove-tab { margin-bottom: 40px; }
+
+.tabsdemoDynamicTabs .demo-tab > div > div {
+    padding: 25px;
+    box-sizing: border-box;
 }
 
-.list-item {
-    margin-top: 10px;
-}
+.tabsdemoDynamicTabs .edit-form input { width: 100%; }
+
+.tabsdemoDynamicTabs md-tabs { border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.tabsdemoDynamicTabs md-tab[disabled] { opacity: 0.5; }
+
+.tabsdemoDynamicTabs label { text-align: left; }
+
+.tabsdemoDynamicTabs .long > input { width: 264px; }
+
+.tabsdemoDynamicTabs .md-button.add-tab { transform: translateY(5px); }
