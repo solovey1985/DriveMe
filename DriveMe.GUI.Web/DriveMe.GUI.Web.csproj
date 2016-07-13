@@ -229,6 +229,7 @@
     <Compile Include="Utils\Initializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\appModule.js" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layouts.css" />
     <Content Include="Content\angular-material.layouts.min.css" />
@@ -239,6 +240,9 @@
     <Content Include="Content\material-datetimepicker.min.css" />
     <Content Include="Content\materialicons.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="ext-modules\dmDashboard\dmDashboard.js" />
+    <Content Include="ext-modules\dmFramework\dmFrameworkModule.js" />
+    <Content Include="ext-modules\dmMenu\dmMenuModule.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

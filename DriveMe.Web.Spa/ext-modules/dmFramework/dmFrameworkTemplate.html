@@ -1,0 +1,45 @@
+﻿<md-toolbar class="dm-top-panel" layout="row" layout-align="space-around center" flex>
+    <div flex>
+        <div class="dm-logo-area" layout="row" hide-xs>
+            <img alt="DriveMe Logo" class="dm-icon-logo" ng-src="{{logo}}"/>
+            <div>
+                <p class="dm-logo-title">{{title}}</p>
+                <div show-xl>
+                    <p class="dm-logo-subtitle">{{subtitle}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="dm-logo-area" hide-gt-xs>
+            <md-button class="" layout-align="center center">
+                <md-icon>
+                    <div style="left:5px; width: 100%;">
+                        <i class="fa fa-2x ion-social-windows-outline"></i>
+                       
+                    </div>
+                </md-icon>
+            </md-button>
+        </div>
+    </div>
+    <div flex>
+        <md-fab-toolbar md-open="false" md-direction="left">
+            <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" layout layout-align="center center" class="md-fab md-primary">
+                    <md-icon><i class="fa fa-2x fa-list"></i></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+                    <md-button aria-label="comment" class="md-icon-button">
+                        <md-icon><i class="fa fa-2x fa-edit"></i></md-icon>
+                    </md-button>
+                    <md-button aria-label="comment" class="md-icon-button">
+                        <md-icon><i class="fa fa-2x fa-info"></i></md-icon>
+                    </md-button>
+                    <md-button aria-label="comment" class="md-icon-button">
+                        <md-icon><i class="fa fa-2x fa-user"></i></md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
+    </div>
+</md-toolbar>

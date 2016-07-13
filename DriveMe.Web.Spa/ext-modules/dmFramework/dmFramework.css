@@ -1,0 +1,31 @@
+﻿.dm-top-panel {
+    border-bottom: solid white 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+.dm-logo-area {
+    margin: 5px;
+    margin-right: 0;    
+    
+    
+}
+.dm-icon-logo {
+    height: 75px;
+    width: 100px;
+    border-radius: 50%;
+
+}
+.dm-logo-area>p {
+    margin: 0;
+}
+.dm-logo-title {
+    font-size: 1em;
+}
+.dm-logo-subtitle {
+    color: rgb(104, 199, 230);
+    font-size: 0.75em;
+}
+.md-button.md-fab {
+    line-height: 0;
+}

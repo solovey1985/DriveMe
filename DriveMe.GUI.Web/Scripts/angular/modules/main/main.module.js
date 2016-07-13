@@ -1,1 +1,1 @@
-﻿angular.module("MainApp", ['ngMaterial','Services','Directives']);
+﻿angular.module("MainApp", ['ngMaterial','ngMaterialDatePicker','Services','Directives']);

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
 
 
@@ -11,7 +12,8 @@
     @Styles.Render("~/Content/material")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", false)
-
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -22,7 +24,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/en-gb.js"></script>
-    @Scripts.Render("~/scripts/datetimepicker")
+    
     @Scripts.Render("~/scripts/angular")
     @Scripts.Render("~/scripts/angular/material")
     @Scripts.Render("~/scripts/angular/app")
