@@ -5,23 +5,40 @@
     <meta charset="utf-8" />
     <!--Bootstrap-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    
     <!--Material-->
     <link href="Content/angular-material.min.css" rel="stylesheet" />
     <link href="Content/angular-material.layouts.min.css" rel="stylesheet" />
-    <!--Fonts-->
 
+    <!--Gridster-->
+    <link href="Content/angular-gridster.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="Content/angular-gridster.min.css" rel="stylesheet" />
 
     <!--Custom-->
     <link href="app/style.css" rel="stylesheet" />
     <link href="ext-modules/dmFramework/dmFramework.css" rel="stylesheet" />
-
+    <link href="ext-modules/dmMenu/dmMenu.css" rel="stylesheet"/>
+    <link href="ext-modules/dmDashboard/dmDashboard.css" rel="stylesheet"/>
+    <link href="app/widgets/appRoutes/appRouteWidget.css" rel="stylesheet" />
+    <link href="app/widgets/appSettings/appSettingsWidget.css" rel="stylesheet" />
 </head>
 <body layout="column" ng-cloak>
-    <dm-framework title="Drive Me" subtitle="Share your trip with pleasure!" logo="/images/logo.jpg"></dm-framework>
+    <dm-framework title="Drive Me" subtitle="Share your trip with pleasure!" logo="/images/logo.jpg">
+        <dm-menu title="Menu">
+            <dm-menu-item route="/dashboard" title="Dashboard" subtitle="Main page" icon="fa-dashboard"></dm-menu-item>
+            <dm-menu-item route="/routes" title="Routes" subtitle="Add, edit, search routes" icon="fa-map"></dm-menu-item>
 
+            <dm-menu-group title="Profile" icon="fa-user">
+                <dm-menu-item route="/profile/info" title="Info" subtitle="Information about you" icon="fa-info-circle"></dm-menu-item>
+                <dm-menu-item route="/profile/settings" title="Settings" subtitle="Adjust your application" icon="fa-cogs"></dm-menu-item>
+            </dm-menu-group>
+        </dm-menu>
+    </dm-framework>
 
 
 
@@ -33,22 +50,55 @@
     <!--Scripts-->
     <!--jQuery-->
     <script src="Scripts/jquery-2.2.4.min.js"></script>
+    
     <!--Bootstrap-->
     <script src="Scripts/bootstrap.js"></script>
     <!--Angular-->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-animate/angular-animate.js"></script>
-    <!--Material-->
-    <script src="Scripts/angular-material/angular-material.js"></script>
-    <script src="Scripts/angular-aria/angular-aria.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
 
+    <!--Material-->
+    <script src="Scripts/angular-aria/angular-aria.min.js"></script>
+    <script src="Scripts/angular-material/angular-material.js"></script>
+    <!--Gridster
+        <script src="Scripts/angular-gridster.min.js"></script>
+    -->
     <!--App-->
+    <!--Dashboard-->
     <script src="ext-modules/dmDashboard/dmDashboard.js"></script>
+    <script src="ext-modules/dmDashboard/dmDashboardDirective.js"></script>
+    <script src="ext-modules/dmDashboard/dmWidgetBodyDirective.js"></script>
+
+    <!--Menu-->
     <script src="ext-modules/dmMenu/dmMenuModule.js"></script>
+    <script src="ext-modules/dmMenu/dmMenuController.js"></script>
+    <script src="ext-modules/dmMenu/dmMenuDirective.js"></script>
+    <script src="ext-modules/dmMenu/dmMenuItemDirective.js"></script>
+    <script src="ext-modules/dmMenu/dmMenuGroupDirective.js"></script>
+    <!--Framework-->
     <script src="ext-modules/dmFramework/dmFrameworkModule.js"></script>
     <script src="ext-modules/dmFramework/dmFrameworkController.js"></script>
     <script src="ext-modules/dmFramework/dmFrameworkDirective.js"></script>
+
+    <!--Application-->
     <script src="app/appModule.js"></script>
+    <script src="app/appConfig.js"></script>
+    <script src="app/appRouteConfig.js"></script>
+    <!--Services-->
+    <script src="app/dataServices.js"></script>
+    <!--App Directives-->
+    <script src="app/directives/appRoutesDirective .js"></script>
+    <script src="app/directives/appProfileSettingsDirective.js"></script>
+    <script src="app/directives/appProfileInfoDirective.js"></script>
+    <script src="app/directives/appDashboardDirective.js"></script>
+
+    <!--Widgets-->
+    <script src="app/widgets/appRoutes/appRouteWidgetDirective.js"></script>
+    <script src="app/widgets/appSettings/appSettingsWidgetDirective.js"></script>
+
+    <script src="app/dialogs/appSelectRouteController.js"></script>
+
 
 </body>
 </html>

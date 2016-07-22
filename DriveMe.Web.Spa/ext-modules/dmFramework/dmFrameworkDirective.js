@@ -1,7 +1,7 @@
 ﻿angular.module('dmFramework')
-.directive('dmFramework',[ function(){
+.directive('dmFramework',[function(){
     return {
-        transclude: false,
+        transclude: true,
         scope: {
             title: '@',
             subtitle: '@',

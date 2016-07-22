@@ -1,0 +1,29 @@
+﻿<div class="dm-dashboard-header">
+    <span>{{title}}</span>
+
+    <div class="btn-group pull-right dm-dashboard-controls">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-plus"></i>&nbsp;Add widget&nbsp;<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li ng-repeat="widget in widgetsDefinition">
+                <a role="menuitem" ng-click="addNewWidget(widget)">{{widget.title}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="gridListdemoBasicUsage">
+
+  <md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="{{gridsterOpts.gutter}}" md-gutter-gt-sm="8px" >
+        <md-widget-body></md-widget-body>
+    <md-grid-tile ng-repeat="item in widgets" class="green">
+      <dm-widget-body></dm-widget-body>
+      <md-grid-tile-footer>{{item.title}}</md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+
+</div>

@@ -1,2 +1,4 @@
 ﻿'use strict';
-angular.module('dmFramework',['dmMenu', 'dmDashboard'])
+(function(){
+    angular.module('dmFramework', ['dmMenu', 'dmDashboard']);
+})();

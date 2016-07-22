@@ -1,0 +1,13 @@
+﻿<md-button class="dm-menu-group" layout-align="space-between center" layout="row" layouy-fill ng-click="toggleGroup()">
+    <div class="dm-menu-icon">
+        <i class="fa fa-3x {{icon}}"></i>
+    </div>
+    <span flex>{{title}}</span>
+    
+    <div flex class="md-menu-expand-button">
+        <i class="fa fa-2x" ng-class="isExpanded ?'fa-angle-up':'fa-angle-down'"></i>
+    </div>
+</md-button>
+<div ng-show="isExpanded" class="dm-fade-in-animation">
+    <ul ng-transclude></ul>
+</div>

@@ -1,0 +1,29 @@
+{
+  "name": "driveme.spa",
+  "version": "1.0.0",
+  "description": "Single-Page Application for DriveMe",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "\"npm run lite\" ",
+    "lite": "lite-server",
+    "gulp":""
+  },
+  "dev" : "lite-server",
+  "keywords": [
+    "trip",
+    "friends",
+    "facebook"
+  ],
+  "author": "andrii_solovienko",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.1.0",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-strip-line": "0.0.1"
+  }
+}

@@ -22,10 +22,20 @@
 .dm-logo-title {
     font-size: 1em;
 }
+
 .dm-logo-subtitle {
     color: rgb(104, 199, 230);
     font-size: 0.75em;
 }
 .md-button.md-fab {
     line-height: 0;
+}
+
+.dm-view {
+    margin-left: 240px;
+    padding-left: 10px; 
+}
+
+.dm-view-full-width {
+    margin-left: 0;
 }

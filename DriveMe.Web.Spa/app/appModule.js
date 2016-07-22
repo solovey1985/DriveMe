@@ -1,3 +1,2 @@
 ﻿'use strict';
-
-angular.module('app', ['ngMaterial','dmFramework']);
+angular.module('app', ['ngRoute','ngMaterial','dmFramework','Service']);

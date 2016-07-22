@@ -1,20 +1,22 @@
 ﻿<md-toolbar class="dm-top-panel" layout="row" layout-align="space-around center" flex>
     <div flex>
-        <div class="dm-logo-area" layout="row" hide-xs>
+
+        <div class="dm-logo-area" layout="row" hide-sm>
             <img alt="DriveMe Logo" class="dm-icon-logo" ng-src="{{logo}}"/>
             <div>
                 <p class="dm-logo-title">{{title}}</p>
-                <div show-xl>
+                <div>
                     <p class="dm-logo-subtitle">{{subtitle}}</p>
                 </div>
             </div>
         </div>
-        <div class="dm-logo-area" hide-gt-xs>
-            <md-button class="" layout-align="center center">
+
+        <div class="dm-logo-area" show-sm hide-gt-sm>
+            <md-button class="" layout-align="center center" ng-click="toggleMenu()">
                 <md-icon>
-                    <div style="left:5px; width: 100%;">
+                    <div>
                         <i class="fa fa-2x ion-social-windows-outline"></i>
-                       
+
                     </div>
                 </md-icon>
             </md-button>
@@ -43,3 +45,6 @@
         </md-fab-toolbar>
     </div>
 </md-toolbar>
+<div ng-transclude></div>   
+<div ng-view class="dm-view" ng-class="{'dm-view-full-width':!isMenuVisible()}"></div> 
+

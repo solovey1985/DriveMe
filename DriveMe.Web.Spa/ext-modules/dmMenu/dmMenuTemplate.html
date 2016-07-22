@@ -1,0 +1,13 @@
+﻿<md-sidenav class="md-sidenav-left dm-menu-area" layout-align="center center"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-sm')"
+            md-disable-backdrop
+            md-whiteframe="4"
+            ng-class="{'dm-menu-area-visible': isMenuVisible()}">
+    <md-toolbar class="md-theme-indigo dm-menu-header">
+        <h1 class="md-toolbar-tools">{{title}}</h1>
+    </md-toolbar>
+    <md-content layout-padding style="width: 100%;">
+        <div ng-transclude></div>
+    </md-content>
+</md-sidenav>

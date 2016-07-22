@@ -1,0 +1,25 @@
+﻿.app-route-widget {
+    height: 100%;
+    width: 100%;
+    min-height: 180px;
+    font-size: 18px;
+    color: #000;
+    
+    background-size: 100% 100%; 
+    background-image:url("/images/route_240.jpg");
+}
+.app-route-heading {
+    background: #4e4eff;
+    min-height: 35px;
+    color: #fff;
+    font-size: 18px;
+}
+.app-route-body {
+
+  
+}
+.app-route-location {
+    margin: 5px;
+    background: #ffffff;
+    background: rgba(255,255,255,0.5);
+}

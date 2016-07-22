@@ -1,0 +1,15 @@
+﻿<md-dialog aria-label="Choose Route">
+    <md-dialog-heading><spam>Select your route</spam></md-dialog-heading>
+    <md-dialog-content>
+        <md-input-container style="margin-right: 10px;">
+            <label>Size</label>
+            <md-select ng-model="routeId">
+                <md-option ng-repeat="route in routes" value="{{route.id}}">{{route.title}}</md-option>
+            </md-select>
+        </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="saveSettings()" class="md-primary">Save</md-button>
+        <md-button ng-click="cancel()" class="md-primary">Cancel</md-button>
+    </md-dialog-actions>
+</md-dialog>

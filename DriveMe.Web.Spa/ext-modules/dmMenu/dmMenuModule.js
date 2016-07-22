@@ -1,2 +1,2 @@
 ﻿'use strict';
-angular.module('dmMenu', ['dmDashboard']);
+angular.module('dmMenu', ['ngAnimate','dmDashboard']);
