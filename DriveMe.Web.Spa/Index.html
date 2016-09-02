@@ -17,7 +17,8 @@
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-    <link href="Content/angular-gridster.min.css" rel="stylesheet" />
+    
+    <link href="Content/material-datetimepicker.min.css" rel="stylesheet" />
 
     <!--Custom-->
     <link href="app/style.css" rel="stylesheet" />
@@ -44,9 +45,6 @@
 
 
 
-
-
-
     <!--Scripts-->
     <!--jQuery-->
     <script src="Scripts/jquery-2.2.4.min.js"></script>
@@ -57,14 +55,21 @@
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-animate/angular-animate.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
-
+    
+    <script src="Scripts/moment.min.js"></script>
+    
     <!--Material-->
     <script src="Scripts/angular-aria/angular-aria.min.js"></script>
     <script src="Scripts/angular-material/angular-material.js"></script>
+    <script src="Scripts/angular-material-datetimepicker.js"></script>
     <!--Gridster
         <script src="Scripts/angular-gridster.min.js"></script>
     -->
     <!--App-->
+    <!--Components-->
+    <script src="ext-modules/dmComponents/dmComponentsModule.js"></script>
+    <script src="ext-modules/dmComponents/dmScheduler/dmSchedulerDirective.js"></script>
+    <script src="ext-modules/dmComponents/dmMap/dmMapDirective.js"></script>
     <!--Dashboard-->
     <script src="ext-modules/dmDashboard/dmDashboard.js"></script>
     <script src="ext-modules/dmDashboard/dmDashboardDirective.js"></script>
@@ -80,7 +85,8 @@
     <script src="ext-modules/dmFramework/dmFrameworkModule.js"></script>
     <script src="ext-modules/dmFramework/dmFrameworkController.js"></script>
     <script src="ext-modules/dmFramework/dmFrameworkDirective.js"></script>
-
+    
+    
     <!--Application-->
     <script src="app/appModule.js"></script>
     <script src="app/appConfig.js"></script>
@@ -92,6 +98,7 @@
     <script src="app/directives/appProfileSettingsDirective.js"></script>
     <script src="app/directives/appProfileInfoDirective.js"></script>
     <script src="app/directives/appDashboardDirective.js"></script>
+    <script src="app/directives/appRouteEditorDirective.js"></script>
 
     <!--Widgets-->
     <script src="app/widgets/appRoutes/appRouteWidgetDirective.js"></script>

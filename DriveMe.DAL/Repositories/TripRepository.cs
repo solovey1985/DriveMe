@@ -7,7 +7,7 @@ namespace DriveMe.DAL.Repositories
 {
     public interface ITripRepository:IRepository<Trip> {}
 
-    public class TripRepository:RepositoryBase<Trip, TripContext>, ITripRepository
+    public class TripRepository:Repository<Trip, TripContext>, ITripRepository
     {
         public TripRepository() : base(new TripUnitOfWork())
         {

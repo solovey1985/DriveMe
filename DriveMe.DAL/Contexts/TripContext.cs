@@ -10,7 +10,6 @@ namespace DriveMe.DAL.Contexts
         public DbSet<Route> Routes { get; set; } 
         public DbSet<Location> Locations { get; set; }
         
-         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
@@ -20,7 +19,6 @@ namespace DriveMe.DAL.Contexts
             modelBuilder.Entity<Trip>().HasMany<User>(p => p.Passengers);
             
             modelBuilder.Entity<Location>().HasKey(l => l.Id);
-            modelBuilder.Entity<Location>().Ignore(l => l.State);
             modelBuilder.Entity<Location>().Property(p => p.Position.Latitude).HasColumnName("Latitude");
             modelBuilder.Entity<Location>().Property(p => p.Address).HasMaxLength(255);
             modelBuilder.Entity<Location>().Property(p => p.Position.Longitude).HasColumnName("Longitude");
@@ -28,7 +26,8 @@ namespace DriveMe.DAL.Contexts
             modelBuilder.Entity<Vehicle>().Ignore(p=>p.State);
             modelBuilder.Entity<User>().Ignore(t => t.State);
             modelBuilder.Entity<Route>().Ignore(p=>p.State);
-            
+            modelBuilder.Entity<Location>().Ignore(l => l.State);
+
             base.OnModelCreating(modelBuilder);
             
         }

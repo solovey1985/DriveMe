@@ -88,5 +88,5 @@ function dataService($http, $timeout){
         getRoute: getRoute,
         getProfileInfo: getProfileinfo,
         getSettings:getSettings
-    }
+    };
 }

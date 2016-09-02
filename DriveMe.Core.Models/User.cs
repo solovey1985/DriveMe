@@ -4,7 +4,7 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class User:EntityBase, IAggregateRoot, IDriveMeUser
+    public class User:Entity, IAggregateRoot, IDriveMeUser
     {
         #region Properties
         public string FirstName {get;set;}

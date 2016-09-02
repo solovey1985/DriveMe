@@ -8,7 +8,7 @@ namespace DriveMe.GUI.AppServices
     {
     }
 
-    public abstract class BaseAppService<T> : IBaseAppService where T:EntityBase, IAggregateRoot, new()
+    public abstract class BaseAppService<T> : IBaseAppService where T:Entity, IAggregateRoot, new()
     {
         protected IBaseFactory<T> factory;
         protected IRepository<T> repository;

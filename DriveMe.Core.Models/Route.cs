@@ -5,7 +5,7 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Route:EntityBase
+    public class Route:Entity
     {
         
         public string Title { get; set; }

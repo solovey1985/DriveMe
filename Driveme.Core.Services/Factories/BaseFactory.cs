@@ -9,13 +9,13 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace Driveme.Domain.Services.Factories
 {
-    public interface IBaseFactory<T> where T : EntityBase, new()
+    public interface IBaseFactory<T> where T : Entity, new()
     {
         T Create();
         T Create(T entity);
     }
 
-    public class BaseFactory<T> : IBaseFactory<T> where T:EntityBase, new()
+    public class BaseFactory<T> : IBaseFactory<T> where T:Entity, new()
     {
        protected T entity;
         public virtual T Create()

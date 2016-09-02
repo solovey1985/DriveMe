@@ -1,7 +1,10 @@
 ﻿angular.module('app')
     .directive('appRoutes',[ function(){
-        return {
-            scope: {},
-            template:'<h1>Routes Page</h1>'
+        function link() {
+            
         }
+        return {
+                link:link,
+                template:'<app-route-editor></app-route-editor>'
+        };
     }]);

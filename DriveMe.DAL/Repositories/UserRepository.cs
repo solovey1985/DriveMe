@@ -9,10 +9,10 @@ using DriveMe.Infrastructure;
 
 namespace DriveMe.DAL.Repositories
 {
-    public interface IUserRepository: IRepositoryBase<User>
+    public interface IUserRepository: IRepository<User>
     {
     }
-    public class UserRepository:RepositoryBase<User, UserContext>, IUserRepository
+    public class UserRepository:Repository<User, UserContext>, IUserRepository
     {
         public UserRepository() : base()
         { }

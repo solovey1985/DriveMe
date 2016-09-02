@@ -4,7 +4,7 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Location:EntityBase
+    public class Location:Entity
     {
         
         public string Title { get; private set; }

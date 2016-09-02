@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +13,9 @@ using Driveme.Domain.Services.Factories;
 using DriveMe.API.Providers;
 using DriveMe.Domain.Models;
 using DriveMe.GUI.AppServices;
+using StackExchange.Redis;
+
+
 
 namespace DriveMe.API.Controllers
 {
@@ -19,15 +23,33 @@ namespace DriveMe.API.Controllers
     public class TripController : ApiController
     {
         private TripService service;
+        // Redis Connection string info
+        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+        {
+            string cacheConnection = ConfigurationManager.AppSettings["RedisConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
+        public static ConnectionMultiplexer Connection => lazyConnection.Value;
 
         public TripController()
         {
+          
+
             service = new TripService(new BaseFactory<Trip>());
         }
         [Route]
         public async Task<IHttpActionResult> Get()
         {
-            return Ok(service.GetAll());
+            IDatabase cache = Connection.GetDatabase();
+
+            string d = cache.StringGet("m");
+            if (String.IsNullOrEmpty(d))
+            {
+                d = DateTime.Now.ToString();
+                cache.StringSet("m", d);
+
+            }
+            return Ok(new {Trips = service.GetAll(), Date = d});
         }
         [Route("{Id:Guid}")]
         public async Task<IHttpActionResult> Get(Guid id)
@@ -37,7 +59,10 @@ namespace DriveMe.API.Controllers
         [Route]
         public async Task<IHttpActionResult> Post([FromBody]Trip trip)
         {
+            var cache = Connection.GetDatabase();
+            cache.StringSetAsync("m", DateTime.Now.ToString(), new TimeSpan(0, 0, 0, 90));
             Guid id = service.Create(trip);
+            
             return Ok(id);
         }
 
@@ -94,7 +119,10 @@ namespace DriveMe.API.Controllers
         #region Schedule
         #endregion
         
-        #region 
+        #region
+
+   
+
         #endregion
     }
 }

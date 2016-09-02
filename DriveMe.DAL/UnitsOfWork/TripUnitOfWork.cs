@@ -9,22 +9,8 @@ using DriveMe.Infrastructure.DAL;
 
 namespace DriveMe.DAL.UnitsOfWork
 {
-    public class TripUnitOfWork:IUnitOfWork<TripContext>
+    public class TripUnitOfWork:UnitOfWork<TripContext>
     {
-        public TripContext Context { get; }
-        public TripUnitOfWork()
-        {
-            Context = new TripContext();
-        }
-        public int Save()
-        {
-            Context.ApplyStateChanges();
-            return Context.SaveChanges();
-        }
-        
-        public void Dispose()
-        {
-            Context.Dispose();
-        }
+      
     }
 }

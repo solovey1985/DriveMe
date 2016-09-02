@@ -6,7 +6,6 @@ angular.module("dmDashboard")
         function($compile, $mdDialog){
 
             function link(scope, el, attrs){
-                console.log(scope);
                 var newElement = angular.element(scope.item.template);
                 el.append(newElement);
                 $compile(newElement)(scope);
@@ -17,10 +16,9 @@ angular.module("dmDashboard")
                 };
 
                 scope.settings = function(){
-                    console.log(scope.item);
                     var options = {
-                        templateUrl: scope.item.settings.widgetSettings.dialogTemplate,
-                        controller: scope.item.settings.widgetSettings.controller,
+                        templateUrl: scope.item.widgetSettings.dialogTemplate,
+                        controller: scope.item.widgetSettings.controller,
                         parent: angular.element(document.body),
                         scope: scope,
                         clickOutsideToClose: true

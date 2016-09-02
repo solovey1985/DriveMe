@@ -3,7 +3,7 @@ using DriveMe.Infrastructure;
 
 namespace DriveMe.Domain.Models
 {
-    public class Vehicle:EntityBase
+    public class Vehicle:Entity
     {
      
         public string Vendor { get; set; }

@@ -13,23 +13,8 @@ namespace DriveMe.DAL.UnitsOfWork
     {
     }
 
-    public class UserUnitOfWork:IUnitOfWork<UserContext>, IUserUnitOfWork
+    public class UserUnitOfWork:UnitOfWork<UserContext>, IUserUnitOfWork
     {
-        public UserContext Context { get; }
-        public UserUnitOfWork()
-        {
-            Context = new UserContext();
-        }
 
-        public int Save()
-        {
-            Context.ApplyStateChanges();
-            return Context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            Context.Dispose();
-        }
     }
 }

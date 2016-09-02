@@ -10,7 +10,7 @@ using DriveMe.Infrastructure.DomainBase;
 namespace DriveMe.Domain.Models
 {
 
-    public partial class Trip: EntityBase, IAggregateRoot
+    public partial class Trip: Entity, IAggregateRoot
     {
         #region Properties
       

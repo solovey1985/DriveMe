@@ -11,9 +11,9 @@ namespace DriveMe.Infrastructure.DAL
     {
         public static void ApplyStateChanges(this DbContext context)
         {
-            foreach (var entry in context.ChangeTracker.Entries<EntityBase>())
+            foreach (var entry in context.ChangeTracker.Entries<Entity>())
             {
-                EntityBase entity = entry.Entity;
+                Entity entity = entry.Entity;
                 entry.State = StateHelper.ConvertState(entity.State);
             }
         }

@@ -5,15 +5,14 @@ angular.module('app')
         function (dataService) {
             function link(scope,el, attrs){
               
-                dataService.getRoute(scope.item.id)
+                dataService.getRoute(scope.item.widgetSettings.id)
                     .then(function (data){
-                        console.log(scope.item);
                         scope.route = data;
                     });
             }
             return {
                 link: link,
                 templateUrl: 'app/widgets/appRoutes/appRouteWidgetTemplate.html'
-            }
+            };
         }
     ]);

@@ -8,22 +8,16 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Infrastructure
 {
-    public interface IRepositoryBase<T>: IRepository<T> where T : EntityBase, IAggregateRoot
-    {
-        IContext<T> Dal { get; set; }
-   
-    }
-
-    public class RepositoryBase<T, TContext> : IRepositoryBase<T> where T : EntityBase, IAggregateRoot where TContext:DbContext
+    public abstract class Repository<T, TContext> : IRepository<T> where T : Entity, IAggregateRoot where TContext:DbContext
     {
         public IContext<T> Dal { get; set; }
-        private IUnitOfWork<TContext> _unitOfWork;
+        private readonly IUnitOfWork<TContext> _unitOfWork;
         protected IDbSet<T> _dbSet => _context.Set<T>();
-        private DbContext _context;
+        private readonly DbContext _context;
 
-        public RepositoryBase() {}
+        public Repository() {}
          
-        public RepositoryBase(IUnitOfWork<TContext> unitOfWork)
+        public Repository(IUnitOfWork<TContext> unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _context = unitOfWork.Context;

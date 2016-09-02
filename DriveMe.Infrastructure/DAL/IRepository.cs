@@ -4,8 +4,9 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Infrastructure
 {
-    public interface IRepository<T> where T:IAggregateRoot
+    public interface IRepository<T> where T: class, IAggregateRoot
     {
+        IContext<T> Dal { get; set; }
         IEnumerable<T> GetAll();
         T GetById(Guid id);
         IEnumerable<T> Get(Func<T, bool> predicate);

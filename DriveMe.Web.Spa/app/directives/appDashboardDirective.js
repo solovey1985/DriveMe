@@ -15,10 +15,6 @@
                 {
                     title: 'Routes',
                     settings: {
-                        sizeX: 3,
-                        sizeY: 3,
-                        row: 0,
-                        col: 0,
                         template: '<app-route-widget></app-route-widget>',
                         widgetSettings: {
                             id: 1001,
@@ -36,7 +32,7 @@
                         col: 0,
                         template: '<app-settings-widget></app-settings-widget>',
                             widgetSettings: {
-                                id:1001,
+                                id:5001,
                                 dialogTemplate: 'app/dialogs/appSettingsSelectDialog.html',
                                 controller:'appSelectSettingsController'
                             }
@@ -44,23 +40,7 @@
 
                     }
                 ];
-                scope.widgets = [
-                   {
-                    title: 'Routes',
-                    settings: {
-                        sizeX: 3,
-                        sizeY: 3,
-                        row: 0,
-                        col: 0,
-                        template: '<app-route-widget></app-route-widget>',
-                        widgetSettings: {
-                            id: 1001,
-                            dialogTemplate: 'app/dialogs/appRouteSelectDialog.html',
-                            controller: 'appSelectRouteController'
-                        }
-                    }
-                }
-                ];
+                scope.widgets = [];
             }
         };
 

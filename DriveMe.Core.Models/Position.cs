@@ -3,7 +3,7 @@ using DriveMe.Infrastructure.DomainBase;
 
 namespace DriveMe.Domain.Models
 {
-    public class Position:ValueObjectBase<Position>
+    public class Position:ValueObject<Position>
     {
         public double Latitude { get; private set; }
 
