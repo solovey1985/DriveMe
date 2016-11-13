@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DriveMe.Infrastructure.DomainBase
+﻿namespace Bigly.Infrastructure.DomainBase
 {
     public interface IAggregateRoot: IEntity
     {

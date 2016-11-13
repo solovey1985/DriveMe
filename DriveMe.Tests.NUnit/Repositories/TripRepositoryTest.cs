@@ -1,11 +1,10 @@
 ﻿using System;
-using DriveMe.DAL.Contexts;
-using DriveMe.DAL.Repositories;
-using DriveMe.Domain.Models;
+using Bigly.DAL.Contexts;
+using Bigly.DAL.Repositories;
+using Bigly.Domain.Models;
 using NUnit.Framework;
 
-
-namespace DriveMe.Tests.NUnit.Repositories
+namespace Bigly.Tests.NUnit.Repositories
 {
     [TestFixture]
     class TripRepositoryTest

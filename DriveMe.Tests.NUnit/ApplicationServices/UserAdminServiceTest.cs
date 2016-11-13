@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
+using Bigly.DAL.Repositories;
+using Bigly.DAL.UnitsOfWork;
+using Bigly.Domain.Models;
+using Bigly.Api.ApiServices;
 using Driveme.Domain.Services.Factories;
-using DriveMe.DAL.Repositories;
-using DriveMe.DAL.UnitsOfWork;
-using DriveMe.Domain.Models;
-using DriveMe.GUI.AppServices;
-using NUnit.Framework;
 using Moq;
-namespace DriveMe.Tests.NUnit.ApplicationServices
+using NUnit.Framework;
+
+namespace Bigly.Tests.NUnit.ApplicationServices
 {
     [TestFixture(Category = "AppServices")]
     public class UserAdminServiceTest

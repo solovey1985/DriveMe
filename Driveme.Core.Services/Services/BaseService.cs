@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Driveme.Core.Services.Services
 {
     public abstract class BaseService<T>:IDisposable where T:class

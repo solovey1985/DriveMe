@@ -1,9 +1,9 @@
-﻿using DriveMe.DAL.Contexts;
-using DriveMe.DAL.UnitsOfWork;
-using DriveMe.Domain.Models;
-using DriveMe.Infrastructure;
+﻿using Bigly.DAL.Contexts;
+using Bigly.DAL.UnitsOfWork;
+using Bigly.Domain.Models;
+using Bigly.Infrastructure;
 
-namespace DriveMe.DAL.Repositories
+namespace Bigly.DAL.Repositories
 {
     public interface ITripRepository:IRepository<Trip> {}
 

@@ -1,4 +1,4 @@
-﻿namespace DriveMe.GUI.AppServices
+﻿namespace Bigly.Api.ApiServices
 {
     public class Email
     {

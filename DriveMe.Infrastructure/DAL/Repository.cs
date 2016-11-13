@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
 using System.Data.Entity.Core;
-using System.Data.Entity.Infrastructure;
-using DriveMe.Infrastructure.DomainBase;
+using System.Linq;
+using Bigly.Infrastructure.DomainBase;
 
-namespace DriveMe.Infrastructure
+namespace Bigly.Infrastructure
 {
     public abstract class Repository<T, TContext> : IRepository<T> where T : Entity, IAggregateRoot where TContext:DbContext
     {

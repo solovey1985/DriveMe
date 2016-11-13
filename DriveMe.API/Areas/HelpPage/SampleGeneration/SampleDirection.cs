@@ -1,4 +1,4 @@
-namespace DriveMe.API.Areas.HelpPage
+namespace Bigly.API.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

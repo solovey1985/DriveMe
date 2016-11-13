@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
-using DriveMe.DAL.Contexts;
-using DriveMe.Domain.Models;
+using Bigly.DAL.Contexts;
+using Bigly.Domain.Models;
 using NUnit.Framework;
-namespace DriveMe.Tests.NUnit.DbContext
+
+namespace Bigly.Tests.NUnit.DbContext
 {
     [TestFixture(Category = "DbContexts") ]
     public class DriveMeContextTest

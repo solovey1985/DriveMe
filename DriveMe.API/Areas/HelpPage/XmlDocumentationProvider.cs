@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using DriveMe.API.Areas.HelpPage.ModelDescriptions;
+using Bigly.API.Areas.HelpPage.ModelDescriptions;
 
-namespace DriveMe.API.Areas.HelpPage
+namespace Bigly.API.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

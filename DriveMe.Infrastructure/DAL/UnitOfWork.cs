@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DriveMe.Infrastructure;
-using DriveMe.Infrastructure.DAL;
+﻿using System.Data.Entity;
+using Bigly.Infrastructure;
+using Bigly.Infrastructure.DAL;
 
-namespace DriveMe.DAL.UnitsOfWork
+namespace Bigly.DAL.UnitsOfWork
 {
     public abstract class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext:DbContext
     {
@@ -22,7 +17,7 @@ namespace DriveMe.DAL.UnitsOfWork
         
         public void Dispose()
         {
-            Context.Dispose();
+           
         }
     }
 }

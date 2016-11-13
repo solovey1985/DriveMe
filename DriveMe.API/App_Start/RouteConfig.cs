@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DriveMe.API
+namespace Bigly.API
 {
     public class RouteConfig
     {

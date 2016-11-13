@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace DriveMe.Infrastructure
+namespace Bigly.Infrastructure
 {
     public interface IUnitOfWork<TContext>:IDisposable where TContext:DbContext
     {

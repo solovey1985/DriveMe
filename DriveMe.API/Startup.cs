@@ -3,15 +3,14 @@ using System.Reflection;
 using System.Web.Hosting;
 using System.Web.Http;
 using Autofac;
-using Autofac.Integration.Mvc;
-
 using Autofac.Integration.WebApi;
+using Bigly.API;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(DriveMe.API.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace DriveMe.API
+namespace Bigly.API
 {
     public partial class Startup
     {

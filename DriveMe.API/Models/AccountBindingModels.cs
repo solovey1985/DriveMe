@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DriveMe.API.Models
+namespace Bigly.API.Models
 {
     // Models used as parameters to AccountController actions.
 

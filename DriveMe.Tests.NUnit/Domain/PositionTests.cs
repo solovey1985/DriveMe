@@ -3,11 +3,10 @@
     Public void Sum_NegativeNumberAs1stParam_ExceptionThrown()
 */
 
-using DriveMe.Domain.Models;
+using Bigly.Domain.Models;
 using NUnit.Framework;
 
-
-namespace DriveMe.Tests.NUnit.Domain
+namespace Bigly.Tests.NUnit.Domain
 {
     [TestFixture]
     public class PositionTests

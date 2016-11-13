@@ -1,6 +1,6 @@
-﻿using DriveMe.GUI.ViewModels.Base;
+﻿using Bigly.Api.ViewModels.Base;
 
-namespace DriveMe.GUI.ViewModels.Common
+namespace Bigly.Api.ViewModels.Common
 {
     public class Trip: ViewModel
     {

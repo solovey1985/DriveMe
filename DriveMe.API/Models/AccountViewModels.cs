@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DriveMe.API.Models
+namespace Bigly.API.Models
 {
     // Models returned by AccountController actions.
 

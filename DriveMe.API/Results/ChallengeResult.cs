@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace DriveMe.API.Results
+namespace Bigly.API.Results
 {
     public class ChallengeResult : IHttpActionResult
     {

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DriveMe.Infrastructure;
-using DriveMe.Infrastructure.DomainBase;
+using Bigly.Infrastructure;
 
 namespace Driveme.Domain.Services.Factories
 {
@@ -21,7 +15,7 @@ namespace Driveme.Domain.Services.Factories
         public virtual T Create()
         {
             entity = new T();
-            entity.Id = Guid.NewGuid();
+            entity.Id = 0;
             
             return entity;
         }
@@ -30,10 +24,9 @@ namespace Driveme.Domain.Services.Factories
         {
             if (entity == null)
                 entity = Create();
-            entity.Id = Guid.NewGuid();
+            entity.Id = 0;
 
             return entity; 
-            //TODO Add validation
         }
     }
 }

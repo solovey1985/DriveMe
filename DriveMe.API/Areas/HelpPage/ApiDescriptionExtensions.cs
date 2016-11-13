@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace DriveMe.API.Areas.HelpPage
+namespace Bigly.API.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

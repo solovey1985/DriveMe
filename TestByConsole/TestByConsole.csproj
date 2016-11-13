@@ -64,33 +64,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DriveMe.API\DriveMe.API.csproj">
+    <ProjectReference Include="..\DriveMe.API\Bigly.API.csproj">
       <Project>{7195ba9c-f838-43f5-bb5e-ccf14db09cea}</Project>
-      <Name>DriveMe.API</Name>
+      <Name>Bigly.API</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Domain.Models.csproj">
+    <ProjectReference Include="..\DriveMe.Core.Models\Bigly.Domain.Models.csproj">
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
-      <Name>DriveMe.Domain.Models</Name>
+      <Name>Bigly.Domain.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Driveme.Core.Services\DriveMe.Domain.Services.csproj">
+    <ProjectReference Include="..\Driveme.Core.Services\Bigly.Domain.Services.csproj">
       <Project>{6bfbfde3-7784-4967-a9fb-e54d8d05deb1}</Project>
-      <Name>DriveMe.Domain.Services</Name>
+      <Name>Bigly.Domain.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.DAL\DriveMe.DAL.csproj">
+    <ProjectReference Include="..\DriveMe.DAL\Bigly.DAL.csproj">
       <Project>{b8475bcc-90e7-41b3-b97d-8a6938eae93c}</Project>
-      <Name>DriveMe.DAL</Name>
+      <Name>Bigly.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.AppServices\DriveMe.GUI.AppServices.csproj">
+    <ProjectReference Include="..\DriveMe.GUI.AppServices\Bigly.GUI.ApiServices.csproj">
       <Project>{8738d3a9-9de2-4e9b-821b-db0b60b6fefa}</Project>
-      <Name>DriveMe.GUI.AppServices</Name>
+      <Name>Bigly.GUI.ApiServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
-      <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
-      <Name>DriveMe.GUI.ViewModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
+    <ProjectReference Include="..\DriveMe.Infrastructure\Bigly.Infrastructure.csproj">
       <Project>{54DA1AE6-2C1C-47FC-9E45-B085D8766F50}</Project>
-      <Name>DriveMe.Infrastructure</Name>
+      <Name>Bigly.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

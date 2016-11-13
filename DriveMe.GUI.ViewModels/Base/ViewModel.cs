@@ -1,4 +1,4 @@
-﻿namespace DriveMe.GUI.ViewModels.Base
+﻿namespace Bigly.Api.ViewModels.Base
 {
     public abstract class ViewModel
     {

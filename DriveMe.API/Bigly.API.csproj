@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DriveMe.API</RootNamespace>
-    <AssemblyName>DriveMe.API</AssemblyName>
+    <RootNamespace>Bigly.API</RootNamespace>
+    <AssemblyName>Bigly.API</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -105,26 +105,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Web.WebApi.WebHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.WebApi.WebHost.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="StackExchange.Redis, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -269,7 +249,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -302,12 +281,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PassengerController.cs" />
-    <Compile Include="Controllers\RoutesController.cs" />
+    <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Controllers\TripController.cs" />
-    <Compile Include="Controllers\TripRequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -386,25 +362,25 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DriveMe.Core.Models\DriveMe.Domain.Models.csproj">
+    <ProjectReference Include="..\DriveMe.Core.Models\Bigly.Domain.Models.csproj">
       <Project>{6a151d69-30ff-40f0-9abe-f1cff3db3724}</Project>
-      <Name>DriveMe.Domain.Models</Name>
+      <Name>Bigly.Domain.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Driveme.Core.Services\DriveMe.Domain.Services.csproj">
+    <ProjectReference Include="..\Driveme.Core.Services\Bigly.Domain.Services.csproj">
       <Project>{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}</Project>
-      <Name>DriveMe.Domain.Services</Name>
+      <Name>Bigly.Domain.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.AppServices\DriveMe.GUI.AppServices.csproj">
+    <ProjectReference Include="..\DriveMe.GUI.AppServices\Bigly.GUI.ApiServices.csproj">
       <Project>{8738D3A9-9DE2-4E9B-821B-DB0B60B6FEFA}</Project>
-      <Name>DriveMe.GUI.AppServices</Name>
+      <Name>Bigly.GUI.ApiServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.ViewModels\DriveMe.GUI.ViewModels.csproj">
+    <ProjectReference Include="..\DriveMe.GUI.ViewModels\Bigly.GUI.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
-      <Name>DriveMe.GUI.ViewModels</Name>
+      <Name>Bigly.GUI.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.Infrastructure\DriveMe.Infrastructure.csproj">
+    <ProjectReference Include="..\DriveMe.Infrastructure\Bigly.Infrastructure.csproj">
       <Project>{54da1ae6-2c1c-47fc-9e45-b085d8766f50}</Project>
-      <Name>DriveMe.Infrastructure</Name>
+      <Name>Bigly.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

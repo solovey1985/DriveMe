@@ -1,8 +1,7 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using DriveMe.Domain.Models;
+using Bigly.Domain.Models;
 
-namespace DriveMe.DAL.Contexts
+namespace Bigly.DAL.Contexts
 {
     public class TripContext:BaseDbContext<TripContext>
     {

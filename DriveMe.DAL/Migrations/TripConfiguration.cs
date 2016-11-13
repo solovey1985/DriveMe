@@ -1,8 +1,9 @@
-namespace DriveMe.DAL.Migrations.Trip
-{
-    using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations;
+using Bigly.DAL.Contexts;
 
-    internal sealed class TripConfiguration : DbMigrationsConfiguration<DriveMe.DAL.Contexts.TripContext>
+namespace Bigly.DAL.Migrations.Trip
+{
+    internal sealed class TripConfiguration : DbMigrationsConfiguration<TripContext>
     {
         public TripConfiguration()
         {
@@ -10,7 +11,7 @@ namespace DriveMe.DAL.Migrations.Trip
             MigrationsDirectory = @"Migrations\Trip";
         }
 
-        protected override void Seed(DriveMe.DAL.Contexts.TripContext context)
+        protected override void Seed(TripContext context)
         {
             //  This method will be called after migrating to the latest version.
 

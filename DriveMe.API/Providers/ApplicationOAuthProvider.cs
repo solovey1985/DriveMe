@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Bigly.API.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using DriveMe.API.Models;
 
-namespace DriveMe.API.Providers
+namespace Bigly.API.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

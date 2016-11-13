@@ -1,25 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DriveMe.Domain.Models;
-using Driveme.Domain.Services.Factories;
-using DriveMe.Infrastructure;
+﻿using Bigly.Domain.Models;
 
 namespace Driveme.Domain.Services.Factories
 {
-    public interface ITripFactory: IBaseFactory<Trip>
+    public interface ISalaryFactory: IBaseFactory<Salary>
     {
-        Trip CreateWithRoute(Route route);
+        
     }
-    public class TripFactory : BaseFactory<Trip>, ITripFactory
+    public class TripFactory : BaseFactory<Salary>, ISalaryFactory
     {
-       public Trip CreateWithRoute(Route route)
-        {
-            Create();
-            entity.Route = route;
-            return entity;
-        }
+      
     }
 }

@@ -1,54 +1,13 @@
-﻿namespace DriveMe.Domain.Models
+﻿namespace Bigly.Domain.Models
 {
-    public enum Direction
+    public enum Period
     {
-        /// <summary>
-        /// On the left hand of the user
-        /// </summary>
-        Left,
-        /// <summary>
-        /// On the right hand of the user
-        /// </summary>
-        Right,
-        /// <summary>
-        /// In front of the user
-        /// </summary>
-        Front,
-        /// <summary>
-        /// At the back of the user
-        /// </summary>
-        Back
+        Hour,
+        Day,
+        Week,
+        Month
     }
 
-    public enum LandmarkType
-    {
-        Shop,
-        BusStop,
-        TramStop,
-        BussinessCenter,
-        Market
-    }
-
-    public enum LocationType
-    {
-        Boarding,
-        Landing,
-        Landmark
-    }
-
-    public enum PassengerStatus
-    {
-        Waiting,
-        Onboard,
-        Free
-    }
-
-    public enum DriverStatus
-    {
-        Waiting,
-        OnRoute,
-        Free
-    }
     public enum Role
     {
         Admin,

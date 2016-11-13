@@ -1,7 +1,7 @@
-﻿using DriveMe.Domain.Models;
+﻿using Bigly.Domain.Models;
 using NUnit.Framework;
 
-namespace DriveMe.Tests.NUnit.Domain
+namespace Bigly.Tests.NUnit.Domain
 {
     [TestFixture]
     public class TripTest

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DriveMe.DAL.Contexts;
-using DriveMe.Domain.Models;
-using DriveMe.Infrastructure;
+﻿using Bigly.DAL.Contexts;
+using Bigly.Domain.Models;
+using Bigly.Infrastructure;
 
-namespace DriveMe.DAL.Repositories
+namespace Bigly.DAL.Repositories
 {
     public interface IUserRepository: IRepository<User>
     {

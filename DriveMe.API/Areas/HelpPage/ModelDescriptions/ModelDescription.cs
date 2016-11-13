@@ -1,6 +1,6 @@
 using System;
 
-namespace DriveMe.API.Areas.HelpPage.ModelDescriptions
+namespace Bigly.API.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

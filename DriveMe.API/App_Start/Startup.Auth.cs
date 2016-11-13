@@ -1,13 +1,13 @@
 ﻿using System;
+using Bigly.API.Models;
+using Bigly.API.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using DriveMe.API.Providers;
-using DriveMe.API.Models;
 
-namespace DriveMe.API
+namespace Bigly.API
 {
     public partial class Startup
     {

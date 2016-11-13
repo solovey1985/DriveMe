@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace DriveMe.API
+namespace Bigly.API
 {
     public class BundleConfig
     {

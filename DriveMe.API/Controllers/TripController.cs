@@ -1,28 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
-using System.Web.Http.Results;
-
+using Bigly.Domain.Models;
+using Bigly.Api.ApiServices;
 using Driveme.Domain.Services.Factories;
-using DriveMe.API.Providers;
-using DriveMe.Domain.Models;
-using DriveMe.GUI.AppServices;
 using StackExchange.Redis;
 
-
-
-namespace DriveMe.API.Controllers
+namespace Bigly.API.Controllers
 {
     [RoutePrefix("api/trip")]
     public class TripController : ApiController
     {
-        private TripService service;
+        private EmployeeService service;
         // Redis Connection string info
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
@@ -35,7 +25,7 @@ namespace DriveMe.API.Controllers
         {
           
 
-            service = new TripService(new BaseFactory<Trip>());
+            service = new EmployeeService(new BaseFactory<Trip>());
         }
         [Route]
         public async Task<IHttpActionResult> Get()

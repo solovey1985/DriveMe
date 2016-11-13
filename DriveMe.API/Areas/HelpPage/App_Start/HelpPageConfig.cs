@@ -5,11 +5,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Web.Http;
+
 #if Handle_PageResultOfT
 using System.Web.Http.OData;
 #endif
 
-namespace DriveMe.API.Areas.HelpPage
+namespace Bigly.API.Areas.HelpPage
 {
     /// <summary>
     /// Use this class to customize the Help Page.

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DriveMe.DAL.Contexts;
-using DriveMe.Infrastructure;
-using DriveMe.Infrastructure.DAL;
+﻿using Bigly.DAL.Contexts;
 
-namespace DriveMe.DAL.UnitsOfWork
+namespace Bigly.DAL.UnitsOfWork
 {
     public interface IUserUnitOfWork
     {

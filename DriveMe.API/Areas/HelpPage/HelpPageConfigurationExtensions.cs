@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using DriveMe.API.Areas.HelpPage.ModelDescriptions;
-using DriveMe.API.Areas.HelpPage.Models;
+using Bigly.API.Areas.HelpPage.ModelDescriptions;
+using Bigly.API.Areas.HelpPage.Models;
 
-namespace DriveMe.API.Areas.HelpPage
+namespace Bigly.API.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

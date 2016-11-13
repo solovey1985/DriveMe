@@ -1,8 +1,9 @@
-namespace DriveMe.DAL.Migrations.User
-{
-    using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations;
+using Bigly.DAL.Contexts;
 
-    internal sealed class UserConfiguration : DbMigrationsConfiguration<DriveMe.DAL.Contexts.UserContext>
+namespace Bigly.DAL.Migrations.User
+{
+    internal sealed class UserConfiguration : DbMigrationsConfiguration<UserContext>
     {
         public UserConfiguration()
         {
@@ -11,7 +12,7 @@ namespace DriveMe.DAL.Migrations.User
         }
         
 
-        protected override void Seed(DriveMe.DAL.Contexts.UserContext context)
+        protected override void Seed(UserContext context)
         {
             //  This method will be called after migrating to the latest version.
 

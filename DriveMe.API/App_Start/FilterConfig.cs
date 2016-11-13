@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DriveMe.API
+namespace Bigly.API
 {
     public class FilterConfig
     {

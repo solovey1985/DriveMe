@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DriveMe.Infrastructure.DomainBase
+namespace Bigly.Infrastructure.DomainBase
 {
     public abstract class ValueObject<T>: IEquatable<T> where T:ValueObject<T>
     {

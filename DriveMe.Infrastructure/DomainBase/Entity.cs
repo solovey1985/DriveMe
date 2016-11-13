@@ -1,15 +1,14 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace DriveMe.Infrastructure
+namespace Bigly.Infrastructure
 {
     public interface IEntity
     {
-        Guid Id { get; set; }
+        int Id { get; set; }
     }
     public abstract class Entity:IEntity
     {
-        private Guid id;
+        private int id;
         public State State { get; set; }
         /// < summary>
         ///     Default Constructor.
@@ -25,7 +24,7 @@ namespace DriveMe.Infrastructure
         ///     represents the primary identifier value for the
         ///     class.
         /// </param>
-        protected Entity(Guid id)
+        protected Entity(int id)
         {
             this.id = id;
         }
@@ -34,7 +33,7 @@ namespace DriveMe.Infrastructure
         ///     An < see cref="System.Object" /> that represents the
         ///     primary identifier value for the class.
         /// </summary>
-        public Guid Id { get { return id; } set { id = value; } }
+        public int Id { get { return id; } set { id = value; } }
 
         #region Equality Tests
 
@@ -114,7 +113,10 @@ namespace DriveMe.Infrastructure
 
         #region Validate
 
-        public abstract bool Validate();
+        public virtual bool Validate()
+        {
+            return true;
+        }
 
         #endregion
     }

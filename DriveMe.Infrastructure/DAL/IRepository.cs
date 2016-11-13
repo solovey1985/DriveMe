@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DriveMe.Infrastructure.DomainBase;
+using Bigly.Infrastructure.DomainBase;
 
-namespace DriveMe.Infrastructure
+namespace Bigly.Infrastructure
 {
     public interface IRepository<T> where T: class, IAggregateRoot
     {

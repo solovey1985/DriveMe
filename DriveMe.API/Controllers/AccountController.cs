@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Bigly.API.Models;
+using Bigly.API.Providers;
+using Bigly.API.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using DriveMe.API.Models;
-using DriveMe.API.Providers;
-using DriveMe.API.Results;
 
-namespace DriveMe.API.Controllers
+namespace Bigly.API.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

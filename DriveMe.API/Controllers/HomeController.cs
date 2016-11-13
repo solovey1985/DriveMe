@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DriveMe.API.Controllers
+namespace Bigly.API.Controllers
 {
     public class HomeController : Controller
     {
