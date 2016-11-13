@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using Bigly.Api.ApiServices;
+using Bigly.API.ApiServices.Interfaces;
 using Bigly.Domain.Models;
+using Bigly.GUI.ViewModels;
 
 namespace Bigly.API.Controllers
 {
@@ -20,25 +22,25 @@ namespace Bigly.API.Controllers
             _salaryService = salaryService;
         }
 
-        public IEnumerable<Salary> Get()
+        public IEnumerable<SalaryViewModel> Get()
         {
-            List<Salary> salriesPerMonth = _salaryService.GetPerMonth().ToList();
+            List<SalaryViewModel> salriesPerMonth = _salaryService.GetPerMonth().ToList();
             return salriesPerMonth;
         }
 
-        public IEnumerable<Salary> Get(int employeeId)
+        public IEnumerable<SalaryViewModel> Get(int employeeId)
         {
-            List<Salary> salriesPerMonth = _salaryService.GetPerMonthByEmloyeeId(employeeId).ToList();
+            List<SalaryViewModel> salriesPerMonth = _salaryService.GetPerMonthByEmloyeeId(employeeId).ToList();
             return salriesPerMonth;
         }
 
-        public Salary Put(Salary salaryToUpdate)
+        public SalaryViewModel Put(SalaryViewModel salaryToUpdate)
         {
             _salaryService.Update(salaryToUpdate);
             return salaryToUpdate;
         }
 
-        public IEnumerable<Salary> Put(List<Salary> salariesToUpdate)
+        public IEnumerable<SalaryViewModel> Put(List<SalaryViewModel> salariesToUpdate)
         {
             _salaryService.BatchUpdate(salariesToUpdate);
             return salariesToUpdate;

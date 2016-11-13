@@ -64,6 +64,10 @@
       <Project>{b8475bcc-90e7-41b3-b97d-8a6938eae93c}</Project>
       <Name>Bigly.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DriveMe.GUI.ViewModels\Bigly.GUI.ViewModels.csproj">
+      <Project>{37541FED-FF51-4E15-90BC-EFF55F5EB08F}</Project>
+      <Name>Bigly.GUI.ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DriveMe.Infrastructure\Bigly.Infrastructure.csproj">
       <Project>{54da1ae6-2c1c-47fc-9e45-b085d8766f50}</Project>
       <Name>Bigly.Infrastructure</Name>

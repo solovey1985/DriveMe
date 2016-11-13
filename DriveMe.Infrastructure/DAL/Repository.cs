@@ -7,11 +7,11 @@ using Bigly.Infrastructure.DomainBase;
 
 namespace Bigly.Infrastructure
 {
-    public abstract class Repository<T, TContext> : IRepository<T> where T : Entity, IAggregateRoot where TContext:DbContext
+    public abstract class Repository<TEntity, TContext> : IRepository<TEntity> where TEntity : Entity, IAggregateRoot where TContext:DbContext
     {
-        public IContext<T> Dal { get; set; }
+        public IContext<TEntity> Dal { get; set; }
         private readonly IUnitOfWork<TContext> _unitOfWork;
-        protected IDbSet<T> _dbSet => _context.Set<T>();
+        protected IDbSet<TEntity> _dbSet => _context.Set<TEntity>();
         private readonly DbContext _context;
 
         public Repository() {}
@@ -22,45 +22,45 @@ namespace Bigly.Infrastructure
             _context = unitOfWork.Context;
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return _dbSet.ToList();
         }
 
-        public virtual IEnumerable<T> Get(Func<T, bool> predicate)
+        public virtual IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
             return _dbSet.Where(predicate).ToList();
         }
 
-        public virtual T GetById(Guid id)
+        public virtual TEntity GetById(int id)
         {
             return _dbSet.FirstOrDefault(entity => entity.Id == id);
         }
 
-        public virtual bool Insert(T entity)
+        public virtual bool Insert(TEntity entity)
         {
             entity.State = State.Added;
             _dbSet.Add(entity);
            return CommitChanges();
         }
 
-        public virtual bool Update(T entity)
+        public virtual bool Update(TEntity entity)
         {
             entity.State = State.Modified;            
             _dbSet.Attach(entity);
             return CommitChanges();
         }
 
-        public bool Delete(T entity)
+        public bool Delete(TEntity entity)
         {
             entity.State = State.Deleted;
             _dbSet.Remove(entity);
             return CommitChanges();
         }
 
-        public virtual bool DeleteById(Guid id)
+        public virtual bool DeleteById(int id)
         {
-            T entity = _dbSet.FirstOrDefault(e => e.Id == id);
+            TEntity entity = _dbSet.FirstOrDefault(e => e.Id == id);
             if (entity == null) throw new ObjectNotFoundException($"Entity with id = {id} not found.");
             entity.State = State.Deleted;
             _dbSet.Remove(entity);

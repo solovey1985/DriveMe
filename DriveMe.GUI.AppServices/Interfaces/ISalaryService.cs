@@ -3,14 +3,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bigly.Domain.Models;
+using Bigly.GUI.ViewModels;
 
 namespace Bigly.API.ApiServices.Interfaces
 {
     public interface ISalaryService
     {
-        void BatchUpdate(List<Salary> salariesToUpdate);
-        IEnumerable<Salary> GetPerMonthByEmloyeeId(int employeeId);
-        void Update(Salary salaryToUpdate);
-        IEnumerable<Salary> GetPerMonth();
+        void BatchUpdate(List<SalaryViewModel> salariesToUpdate);
+        IEnumerable<SalaryViewModel> GetPerMonthByEmloyeeId(int employeeId);
+        void Update(SalaryViewModel salaryToUpdate);
+        IEnumerable<SalaryViewModel> GetPerMonth();
     }
 }

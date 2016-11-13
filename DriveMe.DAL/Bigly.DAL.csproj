@@ -50,19 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\BaseDbContext.cs" />
-    <Compile Include="Contexts\TripContext.cs" />
-    <Compile Include="Contexts\UserContext.cs" />
-    <Compile Include="Migrations\TripConfiguration.cs" />
-    <Compile Include="Migrations\Trip\201605310936006_Init.cs" />
-    <Compile Include="Migrations\Trip\201605310936006_Init.Designer.cs">
-      <DependentUpon>201605310936006_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\UserConfiguration.cs" />
+    <Compile Include="Contexts\EmployeeContext.cs" />
+    <Compile Include="Contexts\SalaryContext.cs" />
+    <Compile Include="Migrations\SalaryConfiguration.cs" />
+    <Compile Include="Migrations\EmployeeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TripRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UnitsOfWork\UserUnitOfWork.cs" />
-    <Compile Include="UnitsOfWork\TripUnitOfWork.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\SalaryRepository.cs" />
+    <Compile Include="UnitsOfWork\SalaryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EmployeeUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DriveMe.Core.Models\Bigly.Domain.Models.csproj">
@@ -82,12 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\User\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\Trip\201605310936006_Init.resx">
-      <DependentUpon>201605310936006_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\Employee\" />
+    <Folder Include="Migrations\Salary\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

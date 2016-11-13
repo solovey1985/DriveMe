@@ -9,7 +9,7 @@ namespace Bigly.Api.ApiServices
     public class EmployeeService:BaseApiService<Employee>
     {
         EmployeeFactory employeeFactory;
-        public EmployeeService(BaseFactory<Employee> factory) : base(factory, new TripRepository())
+        public EmployeeService(BaseFactory<Employee> factory) : base(factory, new EmployeeRepository())
         {
             employeeFactory = new EmployeeFactory();
         }
@@ -19,26 +19,26 @@ namespace Bigly.Api.ApiServices
             return repository.GetAll();
         }
 
-        public Employee GetById(Guid id)
+        public Employee GetById(int id)
         {
             return repository.GetById(id);
         }
 
-        public int Create(Employee trip)
+        public int Create(Employee employee)
         {
-            trip = factory.Create(trip);
-            repository.Insert(trip);
-            return trip.Id;
+            employee = factory.Create(employee);
+            repository.Insert(employee);
+            return employee.Id;
 
         }
 
-        public int Update(Employee trip)
+        public int Update(Employee employee)
         {
-            repository.Update(trip);
-            return trip.Id;
+            repository.Update(employee);
+            return employee.Id;
         }
 
-        public void DeleteById(Guid id)
+        public void DeleteById(int id)
         {
             repository.DeleteById(id);
         }

@@ -54,10 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\BaseFactory.cs" />
-    <Compile Include="Factories\UserFactory.cs" />
-    <Compile Include="Factories\RouteFactory.cs" />
-    <Compile Include="Factories\TripFactory.cs" />
-    <Compile Include="Factories\VehicleFactory.cs" />
+    <Compile Include="Factories\EmployeeFactory.cs" />
+    <Compile Include="Factories\SalaryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
   </ItemGroup>
