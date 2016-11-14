@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Bigly.API
+namespace Bigly.Api
 {
     public class FilterConfig
     {

@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bigly.API</RootNamespace>
-    <AssemblyName>Bigly.API</AssemblyName>
+    <RootNamespace>Bigly.Api</RootNamespace>
+    <AssemblyName>Bigly.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
       <Private>True</Private>
@@ -271,6 +275,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SalaryController.cs" />
@@ -360,13 +365,13 @@
       <Project>{6BFBFDE3-7784-4967-A9FB-E54D8D05DEB1}</Project>
       <Name>Bigly.Domain.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.AppServices\Bigly.GUI.ApiServices.csproj">
+    <ProjectReference Include="..\DriveMe.GUI.AppServices\Bigly.Api.Services.csproj">
       <Project>{8738D3A9-9DE2-4E9B-821B-DB0B60B6FEFA}</Project>
-      <Name>Bigly.GUI.ApiServices</Name>
+      <Name>Bigly.Api.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DriveMe.GUI.ViewModels\Bigly.GUI.ViewModels.csproj">
+    <ProjectReference Include="..\DriveMe.GUI.ViewModels\Bigly.Api.ViewModels.csproj">
       <Project>{37541fed-ff51-4e15-90bc-eff55f5eb08f}</Project>
-      <Name>Bigly.GUI.ViewModels</Name>
+      <Name>Bigly.Api.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\DriveMe.Infrastructure\Bigly.Infrastructure.csproj">
       <Project>{54da1ae6-2c1c-47fc-9e45-b085d8766f50}</Project>

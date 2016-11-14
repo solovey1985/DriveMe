@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using Bigly.API.Areas.HelpPage.ModelDescriptions;
+using Bigly.Api.Areas.HelpPage.ModelDescriptions;
 
-namespace Bigly.API.Areas.HelpPage.Models
+namespace Bigly.Api.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

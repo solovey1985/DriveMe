@@ -3,7 +3,7 @@ using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
 
-namespace Bigly.API
+namespace Bigly.Api
 {
     public static class WebApiConfig
     {

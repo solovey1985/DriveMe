@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using Bigly.Api.ApiServices;
-using Bigly.API.ApiServices.Interfaces;
+using Bigly.Api.Services;
 using Bigly.Domain.Models;
 using Bigly.GUI.ViewModels;
 
-namespace Bigly.API.Controllers
+namespace Bigly.Api.Controllers
 {
 
     public class SalaryController:ApiController
     {
         private ISalaryService _salaryService;
 
-        public SalaryController() {}
-
+       
         public SalaryController(ISalaryService salaryService)
         {
             _salaryService = salaryService;
@@ -40,7 +38,7 @@ namespace Bigly.API.Controllers
             return salaryToUpdate;
         }
 
-        public IEnumerable<SalaryViewModel> Put(List<SalaryViewModel> salariesToUpdate)
+        public IEnumerable<SalaryViewModel> Post(List<SalaryViewModel> salariesToUpdate)
         {
             _salaryService.BatchUpdate(salariesToUpdate);
             return salariesToUpdate;

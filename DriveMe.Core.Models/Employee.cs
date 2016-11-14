@@ -9,12 +9,16 @@ namespace Bigly.Domain.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int RateId { get; set; }
 
-        public ICollection<Salary> Salries { get; set; } 
+
+        public virtual Rate Rate { get; set; }
+
+        public virtual ICollection<Salary> Salaries { get; set; } 
 
         public override bool Validate()
         {
-            return !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName);
+            return !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName) && RateId>=0;
         }
     }
 

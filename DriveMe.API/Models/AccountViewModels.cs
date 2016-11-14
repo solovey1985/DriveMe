@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Bigly.API.Models
+namespace Bigly.Api.Models
 {
     // Models returned by AccountController actions.
 

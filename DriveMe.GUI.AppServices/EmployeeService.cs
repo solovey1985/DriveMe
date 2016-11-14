@@ -4,7 +4,7 @@ using Bigly.DAL.Repositories;
 using Bigly.Domain.Models;
 using Driveme.Domain.Services.Factories;
 
-namespace Bigly.Api.ApiServices
+namespace Bigly.Api.Services
 {
     public class EmployeeService:BaseApiService<Employee>
     {

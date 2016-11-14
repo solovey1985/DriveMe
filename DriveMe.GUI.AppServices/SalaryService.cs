@@ -1,32 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bigly.Api.ApiServices;
-using Bigly.API.ApiServices.Interfaces;
+using System.Linq;
+using AutoMapper;
+using Bigly.Api.Services;
+using Bigly.DAL.Repositories;
 using Bigly.Domain.Models;
 using Bigly.GUI.ViewModels;
 
-namespace Bigly.API.ApiServices
+namespace Bigly.Api.Services
 {
-    class SalaryService :BaseApiService<Salary>, ISalaryService
+    public class SalaryService :BaseApiService<Salary>, ISalaryService
     {
+        private ISalaryRepository _salaryRepository;
+
+        public SalaryService(ISalaryRepository salaryRepository)
+        {
+            _salaryRepository = salaryRepository;
+        }
+
         public void BatchUpdate(List<SalaryViewModel> salariesToUpdate)
         {
-            throw new NotImplementedException();
+            
         }
 
         public IEnumerable<SalaryViewModel> GetPerMonthByEmloyeeId(int employeeId)
         {
-            throw new NotImplementedException();
+            List<Salary> domainModels = _salaryRepository.GetAll().ToList();
+            List<SalaryViewModel> viewModels = new List<SalaryViewModel>(domainModels.Count());
+
+            viewModels.AddRange(domainModels.Select(Mapper.Map<SalaryViewModel>));
+
+            return viewModels;
         }
 
         public void Update(SalaryViewModel salaryToUpdate)
         {
-            throw new NotImplementedException();
+            
         }
 
         public IEnumerable<SalaryViewModel> GetPerMonth()
         {
-            throw new NotImplementedException();
+            List<SalaryViewModel> salaries = _salaryRepository.GetAll().Select(Mapper.Map<SalaryViewModel>).ToList();
+            return salaries;
         }
     }
 }

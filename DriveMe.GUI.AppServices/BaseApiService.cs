@@ -2,7 +2,7 @@
 using Bigly.Infrastructure.DomainBase;
 using Driveme.Domain.Services.Factories;
 
-namespace Bigly.Api.ApiServices
+namespace Bigly.Api.Services
 {
     public interface IBaseAppService
     {

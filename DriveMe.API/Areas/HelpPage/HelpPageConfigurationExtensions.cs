@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using Bigly.API.Areas.HelpPage.ModelDescriptions;
-using Bigly.API.Areas.HelpPage.Models;
+using Bigly.Api.Areas.HelpPage.ModelDescriptions;
+using Bigly.Api.Areas.HelpPage.Models;
 
-namespace Bigly.API.Areas.HelpPage
+namespace Bigly.Api.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

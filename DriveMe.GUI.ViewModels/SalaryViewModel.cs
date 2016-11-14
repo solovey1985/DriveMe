@@ -9,11 +9,13 @@ namespace Bigly.GUI.ViewModels
 {
     public class SalaryViewModel:ViewModel
     {
+        public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Rate { get; set; }
-        public decimal Amount { get; set; }
+        public string RatePosition { get; set; }
+        public decimal PaidAmount { get; set; }
         public DateTime Since { get; set; }
         public DateTime Till { get; set; }
+        
     }
 }

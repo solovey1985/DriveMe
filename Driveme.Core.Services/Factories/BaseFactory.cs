@@ -3,10 +3,10 @@ using Bigly.Infrastructure;
 
 namespace Driveme.Domain.Services.Factories
 {
-    public interface IBaseFactory<T> where T : Entity, new()
+    public interface IBaseFactory<TEntity> where TEntity : Entity, new()
     {
-        T Create();
-        T Create(T entity);
+        TEntity Create();
+        TEntity Create(TEntity entity);
     }
 
     public class BaseFactory<T> : IBaseFactory<T> where T:Entity, new()

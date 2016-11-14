@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace Bigly.API.Areas.HelpPage
+namespace Bigly.Api.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

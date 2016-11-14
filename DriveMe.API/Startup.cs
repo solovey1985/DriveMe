@@ -1,14 +1,6 @@
-﻿using System.IO;
-using System.Reflection;
-using System.Web.Hosting;
-using System.Web.Http;
-using Bigly.API;
-using Microsoft.Owin;
-using Owin;
+﻿using Owin;
 
-//[assembly: OwinStartup(typeof(Startup))]
-
-namespace Bigly.API
+namespace Bigly.Api
 {
     public partial class Startup
     {

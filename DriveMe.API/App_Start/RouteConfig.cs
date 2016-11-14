@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Bigly.API
+namespace Bigly.Api
 {
     public class RouteConfig
     {

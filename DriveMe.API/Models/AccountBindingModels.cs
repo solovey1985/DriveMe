@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Bigly.API.Models
+namespace Bigly.Api.Models
 {
     // Models used as parameters to AccountController actions.
 

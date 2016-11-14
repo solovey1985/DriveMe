@@ -9,8 +9,6 @@ namespace Bigly.DAL.Repositories
 
     public class EmployeeRepository:Repository<Employee, EmployeeContext>, IEmployeeRepository
     {
-        public EmployeeRepository() : base(new EmployeeUnitOfWork())
-        {
-        }
+      
     }
 }

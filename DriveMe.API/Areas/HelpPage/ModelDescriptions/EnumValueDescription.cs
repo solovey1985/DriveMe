@@ -1,4 +1,4 @@
-namespace Bigly.API.Areas.HelpPage.ModelDescriptions
+namespace Bigly.Api.Areas.HelpPage.ModelDescriptions
 {
     public class EnumValueDescription
     {

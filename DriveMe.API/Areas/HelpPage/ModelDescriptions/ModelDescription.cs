@@ -1,6 +1,6 @@
 using System;
 
-namespace Bigly.API.Areas.HelpPage.ModelDescriptions
+namespace Bigly.Api.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

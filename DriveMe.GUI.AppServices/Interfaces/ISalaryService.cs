@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Bigly.Domain.Models;
 using Bigly.GUI.ViewModels;
 
-namespace Bigly.API.ApiServices.Interfaces
+namespace Bigly.Api.Services
 {
     public interface ISalaryService
     {

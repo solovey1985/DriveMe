@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace Bigly.API.Areas.HelpPage.ModelDescriptions
+namespace Bigly.Api.Areas.HelpPage.ModelDescriptions
 {
     public class EnumTypeModelDescription : ModelDescription
     {

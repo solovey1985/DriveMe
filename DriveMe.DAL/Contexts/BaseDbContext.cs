@@ -9,7 +9,7 @@ namespace Bigly.DAL.Contexts
 
         static BaseDbContext(){Database.SetInitializer<IContext>(null);}
 
-        protected BaseDbContext() : base("name=DriveMeEntity")
+        protected BaseDbContext() : base("name=BiglyEntity")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = true;

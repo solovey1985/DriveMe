@@ -10,10 +10,13 @@ namespace Bigly.Domain.Models
 {
     public class Salary : Entity, IAggregateRoot
     {
+        public int EmployeeId { get; set; }
+
         public PaymentPeriod Period { get; set; }
 
-        public int RateId { get; set; }
-
+        public decimal PaidAmount { get; set; }
+        
+        public virtual Employee Employee { get; set; }
 
     }
 }

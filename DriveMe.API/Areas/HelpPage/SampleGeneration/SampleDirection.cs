@@ -1,4 +1,4 @@
-namespace Bigly.API.Areas.HelpPage
+namespace Bigly.Api.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

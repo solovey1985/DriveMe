@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using Bigly.Domain.Models;
 
 namespace Bigly.DAL.Contexts
@@ -13,14 +14,25 @@ namespace Bigly.DAL.Contexts
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Employee>().HasKey(e => e.Id);
+            modelBuilder.Entity<Employee>().Property(e => e.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity); ;
             modelBuilder.Entity<Employee>().Ignore(t => t.State);
-            modelBuilder.Entity<Employee>().HasOptional(e => e.Salries);
-            modelBuilder.Entity<Employee>().HasMany<Salary>(p => p.Salries);
+            modelBuilder.Entity<Employee>().HasRequired(e => e.Rate)
+                .WithMany(r => r.Employees).HasForeignKey(e => e.RateId);
+            modelBuilder.Entity<Employee>().HasOptional(e => e.Salaries);
+            modelBuilder.Entity<Employee>().HasMany<Salary>(p => p.Salaries);
             
+
             modelBuilder.Entity<Rate>().HasKey(r => r.Id);
             modelBuilder.Entity<Rate>().Ignore(p => p.State);
 
+            modelBuilder.Entity<Salary>()
+                .Property(s => s.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Salary>()
+                .HasRequired(s => s.Employee)
+                .WithMany(e => e.Salaries)
+                .HasForeignKey(e => e.EmployeeId);
             modelBuilder.Entity<Salary>().Ignore(p=>p.State);
             
 

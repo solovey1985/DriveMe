@@ -1,13 +1,13 @@
 ﻿using System;
-using Bigly.API.Models;
-using Bigly.API.Providers;
+using Bigly.Api.Models;
+using Bigly.Api.Providers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 
-namespace Bigly.API
+namespace Bigly.Api
 {
     public partial class Startup
     {

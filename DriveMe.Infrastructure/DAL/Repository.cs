@@ -10,7 +10,7 @@ namespace Bigly.Infrastructure
     public abstract class Repository<TEntity, TContext> : IRepository<TEntity> where TEntity : Entity, IAggregateRoot where TContext:DbContext
     {
         public IContext<TEntity> Dal { get; set; }
-        private readonly IUnitOfWork<TContext> _unitOfWork;
+        protected readonly IUnitOfWork<TContext> _unitOfWork;
         protected IDbSet<TEntity> _dbSet => _context.Set<TEntity>();
         private readonly DbContext _context;
 

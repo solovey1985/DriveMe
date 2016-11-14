@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace Bigly.API
+namespace Bigly.Api
 {
     public class BundleConfig
     {

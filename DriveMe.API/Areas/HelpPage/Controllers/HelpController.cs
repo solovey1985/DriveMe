@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Bigly.API.Areas.HelpPage.ModelDescriptions;
-using Bigly.API.Areas.HelpPage.Models;
+using Bigly.Api.Areas.HelpPage.ModelDescriptions;
+using Bigly.Api.Areas.HelpPage.Models;
 
-namespace Bigly.API.Areas.HelpPage.Controllers
+namespace Bigly.Api.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

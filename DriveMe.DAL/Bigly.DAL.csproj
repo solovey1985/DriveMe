@@ -52,6 +52,10 @@
     <Compile Include="Contexts\BaseDbContext.cs" />
     <Compile Include="Contexts\EmployeeContext.cs" />
     <Compile Include="Contexts\SalaryContext.cs" />
+    <Compile Include="Migrations\Employee\201611132359265_Init.cs" />
+    <Compile Include="Migrations\Employee\201611132359265_Init.Designer.cs">
+      <DependentUpon>201611132359265_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\SalaryConfiguration.cs" />
     <Compile Include="Migrations\EmployeeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +82,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\Employee\" />
     <Folder Include="Migrations\Salary\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Employee\201611132359265_Init.resx">
+      <DependentUpon>201611132359265_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

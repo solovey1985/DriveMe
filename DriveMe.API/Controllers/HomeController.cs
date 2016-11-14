@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Bigly.API.Controllers
+namespace Bigly.Api.Controllers
 {
     public class HomeController : Controller
     {

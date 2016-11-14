@@ -1,4 +1,4 @@
-﻿namespace Bigly.Api.ApiServices
+﻿namespace Bigly.Api.Services
 {
     public class Email
     {

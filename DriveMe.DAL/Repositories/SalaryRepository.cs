@@ -1,4 +1,5 @@
 ﻿using Bigly.DAL.Contexts;
+using Bigly.DAL.UnitsOfWork;
 using Bigly.Domain.Models;
 using Bigly.Infrastructure;
 
@@ -11,7 +12,7 @@ namespace Bigly.DAL.Repositories
     {
         public SalaryRepository() : base()
         { }
-        public SalaryRepository(IUnitOfWork<SalaryContext> unitOfWork) : base(unitOfWork)
+        public SalaryRepository(ISalaryUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
     }

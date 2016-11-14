@@ -6,9 +6,9 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Bigly.API.Models;
-using Bigly.API.Providers;
-using Bigly.API.Results;
+using Bigly.Api.Models;
+using Bigly.Api.Providers;
+using Bigly.Api.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -16,7 +16,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 
-namespace Bigly.API.Controllers
+namespace Bigly.Api.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

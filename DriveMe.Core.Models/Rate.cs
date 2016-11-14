@@ -10,12 +10,13 @@ namespace Bigly.Domain.Models
     public class Rate : Entity
     {
         public string EmployeePosition { get; set; }
-        public decimal AmountPerPeriod { get; set; }
-        public Period Period { get; set; }
+        public decimal AmountPerHour { get; set; }
+
+        public virtual ICollection<Employee> Employees { get; protected set; }
 
         public override bool Validate()
         {
-            throw new NotImplementedException();
+            return AmountPerHour >= 0 && !string.IsNullOrEmpty(EmployeePosition);
         }
     }
 }
