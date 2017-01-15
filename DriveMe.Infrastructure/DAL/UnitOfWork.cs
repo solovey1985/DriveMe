@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +10,52 @@ using DriveMe.Infrastructure.DAL;
 
 namespace DriveMe.DAL.UnitsOfWork
 {
-    public abstract class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext:DbContext
+    public abstract class UnitOfWork<TContext> : IUnitOfWork<TContext>
+      where TContext : DbContext
     {
 
-        public TContext Context { get; }
+        public TContext Context => _context;
+        private TContext _context;
 
-        public int Save()
+        public UnitOfWork(TContext context)
         {
-            Context.ApplyStateChanges();
-            return Context.SaveChanges();
+            _context = context;
         }
-        
+
+        public bool Save()
+        {
+            try
+            {
+                Context.ApplyStateChanges();
+                return Context.SaveChanges() > 0;
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+                Debug.WriteLine(exception.StackTrace);
+                return false;
+            }
+
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
         public void Dispose()
         {
-            Context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

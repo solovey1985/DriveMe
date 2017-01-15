@@ -9,7 +9,7 @@ using Autofac.Integration.WebApi;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(DriveMe.API.Startup))]
+//[assembly: OwinStartup(typeof(DriveMe.API.Startup))]
 
 namespace DriveMe.API
 {

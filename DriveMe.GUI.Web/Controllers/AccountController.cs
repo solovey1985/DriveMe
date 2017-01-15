@@ -19,10 +19,11 @@ namespace DriveMe.GUI.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly UserRepository _userRepository = new UserRepository(new UserUnitOfWork());
+        private readonly IUserRepository _userRepository;
 
-        public AccountController()
+        public AccountController(IUserRepository repository, IUserUnitOfWork unitOfWork)
         {
+            _userRepository = repository;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )

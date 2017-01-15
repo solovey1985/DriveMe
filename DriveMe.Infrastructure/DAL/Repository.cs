@@ -71,7 +71,7 @@ namespace DriveMe.Infrastructure
 
         private bool CommitChanges()
         {
-            return _unitOfWork.Save() > 0;
+            return _unitOfWork.Save();
         }
     }
 }

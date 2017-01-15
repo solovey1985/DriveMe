@@ -15,6 +15,8 @@ namespace DriveMe.DAL.UnitsOfWork
 
     public class UserUnitOfWork:UnitOfWork<UserContext>, IUserUnitOfWork
     {
-
+        public UserUnitOfWork(UserContext context) : base(context)
+        {
+        }
     }
 }

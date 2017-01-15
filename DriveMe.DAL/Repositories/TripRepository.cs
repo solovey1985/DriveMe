@@ -9,7 +9,7 @@ namespace DriveMe.DAL.Repositories
 
     public class TripRepository:Repository<Trip, TripContext>, ITripRepository
     {
-        public TripRepository() : base(new TripUnitOfWork())
+        public TripRepository(ITripUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
     }

@@ -31,11 +31,11 @@ namespace DriveMe.API.Controllers
         });
         public static ConnectionMultiplexer Connection => lazyConnection.Value;
 
-        public TripController()
+        public TripController(ITripService service)
         {
           
 
-            service = new TripService(new BaseFactory<Trip>());
+            service = service;
         }
         [Route]
         public async Task<IHttpActionResult> Get()

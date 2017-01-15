@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DriveMe.API")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EPAM Systems")]
+[assembly: AssemblyCompany("SkyNet Systems")]
 [assembly: AssemblyProduct("DriveMe.API")]
-[assembly: AssemblyCopyright("Copyright © EPAM Systems 2016")]
+[assembly: AssemblyCopyright("Copyright © SkyNet Systems 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

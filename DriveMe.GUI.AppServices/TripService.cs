@@ -15,9 +15,9 @@ namespace DriveMe.GUI.AppServices
     public class TripService:BaseAppService<Trip>
     {
         RouteFactory routeFactory;
-        public TripService(BaseFactory<Trip> factory) : base(factory, new TripRepository())
+        public TripService(IBaseFactory<Trip> factory, ITripRepository repository) : base(factory, repository)
         {
-            routeFactory = new RouteFactory();
+            
         }
 
         public IEnumerable<Trip> GetAll()
