@@ -12,7 +12,27 @@ using DriveMe.Domain.Models;
 
 namespace DriveMe.GUI.AppServices
 {
-    public class TripService:BaseAppService<Trip>
+    public interface ITripService:IBaseAppService {
+        IEnumerable<Trip> GetAll();
+
+        Trip GetById(Guid id);
+
+        Guid Create(Trip trip);
+
+        Guid Update(Trip trip);
+
+        void DeleteById(Guid id);
+
+        void DeleteRoute(Guid id);
+
+        void UpdateRoute(Route route);
+
+        Guid AddRoute(Route route);
+
+        Route GetRouteByTripId(Guid tripId);
+    }
+
+    public class TripService:BaseAppService<Trip>, ITripService
     {
         RouteFactory routeFactory;
         public TripService(IBaseFactory<Trip> factory, ITripRepository repository) : base(factory, repository)
